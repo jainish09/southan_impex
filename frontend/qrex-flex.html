@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qrex Flex Products | Southern Impex</title>
+  <meta name="description" content="Qrex Flex premium grade flex banner media for vibrant and durable outdoor displays. Imported and distributed by Southern Impex.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="flex-page">
+
+  <!-- HEADER / NAVIGATION -->
+  <header class="header">
+    <div class="container nav-container">
+      <!-- Logo & Brand -->
+      <a href="index.html" class="logo-link" style="display: flex; align-items: center; text-decoration: none;">
+        <img src="assets/main-logo.jpg" alt="Southern Impex Logo" style="height: 55px; max-width: 250px; object-fit: contain;">
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="nav-menu">
+        <div class="nav-item"><a href="index.html#home" class="nav-link">Home</a></div>
+        <div class="nav-item"><a href="index.html#about" class="nav-link">About Us</a></div>
+        <div class="nav-item active">
+          <a href="index.html#products" class="nav-link">
+            Products 
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <div class="dropdown-menu">
+            <a href="flex.html" class="dropdown-link">Flex Printing Media</a>
+            <a href="vinyl.html" class="dropdown-link">Self Adhesive Vinyl</a>
+            <a href="acrylic.html" class="dropdown-link">ASTRYX™ Cast Acrylic</a>
+            <a href="acp.html" class="dropdown-link">ACP Composite Panels</a>
+            <a href="led.html" class="dropdown-link">Samsung LED Modules</a>
+            <a href="pvc.html" class="dropdown-link">PVC Foam Boards & Sunboard</a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="flex.html#flex-brands" class="nav-link">Flex Brands</a></div>
+        <div class="nav-item"><a href="#qrex-products" class="nav-link">Qrex Range</a></div>
+        <div class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></div>
+      </nav>
+
+      <!-- Action Button -->
+      <div class="header-action">
+        <button class="btn btn-primary" data-product="Qrex Flex Wholesale">Request Quote</button>
+      </div>
+
+      <!-- Mobile Toggle -->
+      <button class="mobile-toggle" aria-label="Toggle Navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- AMAZON-STYLE PRODUCT LISTING -->
+  <style>
+    .amz-page {
+      background: #eaeded;
+      padding: 20px 0;
+      font-family: Arial, sans-serif;
+      color: #0f1111;
+    }
+    .amz-container {
+      display: flex;
+      max-width: 1400px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+    }
+    .amz-sidebar {
+      width: 250px;
+      flex-shrink: 0;
+      padding-right: 20px;
+      border-right: 1px solid #ddd;
+    }
+    .amz-sidebar h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    .amz-sidebar h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      margin-top: 20px;
+    }
+    .amz-sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .amz-sidebar li {
+      font-size: 14px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+    }
+    .amz-sidebar li input {
+      margin-right: 8px;
+    }
+    .amz-sidebar li a {
+      color: #0f1111;
+      text-decoration: none;
+    }
+    .amz-sidebar li a:hover {
+      color: #c45500;
+    }
+    .amz-main {
+      flex-grow: 1;
+      padding-left: 20px;
+    }
+    .amz-topbar {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+    .amz-product-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .amz-product-card {
+      display: flex;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      transition: box-shadow 0.2s;
+    }
+    .amz-product-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .amz-product-img {
+      width: 250px;
+      flex-shrink: 0;
+      background: #f8f8f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .amz-product-img img {
+      max-width: 100%;
+      max-height: 200px;
+      object-fit: contain;
+    }
+    .amz-product-details {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .amz-product-title {
+      font-size: 18px;
+      color: #007185;
+      font-weight: 600;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+    .amz-product-title:hover {
+      color: #c45500;
+      text-decoration: underline;
+    }
+    .amz-product-rating {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: #007185;
+      margin-bottom: 8px;
+    }
+    .amz-stars {
+      color: #ffa41c;
+      margin-right: 5px;
+      font-size: 16px;
+    }
+    .amz-product-specs {
+      font-size: 14px;
+      color: #565959;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+    .amz-stock {
+      color: #007600;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .amz-product-price {
+      font-size: 24px;
+      font-weight: 500;
+      color: #0f1111;
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+    }
+    .amz-price-symbol {
+      font-size: 14px;
+      vertical-align: top;
+      margin-right: 2px;
+    }
+    .amz-product-action {
+      width: 200px;
+      flex-shrink: 0;
+      background: #f8f8f8;
+      padding: 20px;
+      border-left: 1px solid #ddd;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .amz-btn {
+      background: #ffd814;
+      border: 1px solid #fcd200;
+      border-radius: 100px;
+      padding: 10px 15px;
+      width: 100%;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(213,217,217,.5);
+      color: #0f1111;
+      text-decoration: none;
+    }
+    .amz-btn:hover {
+      background: #f7ca00;
+    }
+    .amz-prime {
+      color: #00a8e1;
+      font-weight: bold;
+      font-style: italic;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+  </style>
+
+  <div class="amz-page">
+    <div class="amz-container">
+      
+      <!-- SIDEBAR FILTERS -->
+      <aside class="amz-sidebar">
+        <h3>Filters</h3>
+        
+        <h4>Brand</h4>
+        <ul>
+          <li><input type="checkbox" checked> Qrex Flex</li>
+          <li><input type="checkbox"> Ultra Sign</li>
+          <li><input type="checkbox"> Starflex</li>
+        </ul>
+
+        <h4>Media Type</h4>
+        <ul>
+          <li><a href="#">Frontlit Flex</a></li>
+          <li><a href="#">Backlit Flex</a></li>
+          <li><a href="#">Blockout (Black Back)</a></li>
+          <li><a href="#">Eco-Solvent Flex</a></li>
+        </ul>
+
+        <h4>Weight (GSM)</h4>
+        <ul>
+          <li><input type="checkbox"> 280 GSM</li>
+          <li><input type="checkbox"> 340 GSM</li>
+          <li><input type="checkbox"> 380 GSM</li>
+          <li><input type="checkbox"> 440 GSM</li>
+          <li><input type="checkbox"> 510 GSM</li>
+        </ul>
+
+        <h4>Surface Finish</h4>
+        <ul>
+          <li><input type="checkbox"> High Gloss</li>
+          <li><input type="checkbox"> Matte</li>
+        </ul>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="amz-main">
+        
+        <div class="amz-topbar">
+          <div>1-3 of 3 results for <strong>"Qrex Flex"</strong></div>
+          <div>
+            <select style="padding: 5px; border-radius: 4px; border: 1px solid #ddd;">
+              <option>Sort by: Featured</option>
+              <option>Price: Low to High</option>
+              <option>Price: High to Low</option>
+              <option>Avg. Customer Review</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="amz-product-list">
+          
+          <!-- Product 1 -->
+          <div class="amz-product-card">
+            <div class="amz-product-img">
+              <img src="assets/qrex-flex.jpg" alt="Qrex Frontlit Standard">
+            </div>
+            <div class="amz-product-details">
+              <div class="amz-product-title">Qrex Frontlit Standard Flex Banner Roll (280 - 340 GSM, Glossy Finish)</div>
+              <div class="amz-product-rating">
+                <span class="amz-stars">★★★★☆</span> 48 wholesale ratings
+              </div>
+              <div class="amz-product-specs">
+                <strong>Size:</strong> 3.2m x 50m Roll<br>
+                <strong>Application:</strong> Outdoor billboards, standard hoardings<br>
+                Cost-effective glossy finish for vibrant standard outdoor displays. Excellent ink absorption.
+              </div>
+              <div class="amz-stock">In Stock</div>
+              <div class="amz-product-price">
+                <span class="amz-price-symbol">B2B</span> Quote Only
+              </div>
+            </div>
+            <div class="amz-product-action">
+              <div class="amz-prime">Wholesale Prime</div>
+              <button class="amz-btn" data-product="Qrex Frontlit 340GSM">Request Quote</button>
+            </div>
+          </div>
+
+          <!-- Product 2 -->
+          <div class="amz-product-card">
+            <div class="amz-product-img">
+              <img src="assets/qrex-flex.jpg" alt="Qrex Premium Backlit">
+            </div>
+            <div class="amz-product-details">
+              <div class="amz-product-title">Qrex Premium Backlit Flex Banner Media (440 - 510 GSM, Translucent)</div>
+              <div class="amz-product-rating">
+                <span class="amz-stars">★★★★★</span> 124 wholesale ratings
+              </div>
+              <div class="amz-product-specs">
+                <strong>Size:</strong> 3.2m x 50m Roll<br>
+                <strong>Application:</strong> Glowing shop signs, lightboxes<br>
+                High-translucency pure white media for maximum illumination. Weather and UV resistant.
+              </div>
+              <div class="amz-stock">In Stock</div>
+              <div class="amz-product-price">
+                <span class="amz-price-symbol">B2B</span> Quote Only
+              </div>
+            </div>
+            <div class="amz-product-action">
+              <div class="amz-prime">Wholesale Prime</div>
+              <button class="amz-btn" data-product="Qrex Backlit 510GSM">Request Quote</button>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div class="amz-product-card">
+            <div class="amz-product-img">
+              <img src="assets/flex_banners.jpg" alt="Qrex Black Back">
+            </div>
+            <div class="amz-product-details">
+              <div class="amz-product-title">Qrex Black Back / Blockout Flex Banner (380 - 440 GSM, Zero Show-Through)</div>
+              <div class="amz-product-rating">
+                <span class="amz-stars">★★★★☆</span> 32 wholesale ratings
+              </div>
+              <div class="amz-product-specs">
+                <strong>Size:</strong> 3.2m x 50m Roll<br>
+                <strong>Application:</strong> Double-sided displays, premium hoardings<br>
+                Zero light transmission banner, preventing show-through. Ideal for high-end displays.
+              </div>
+              <div class="amz-stock">Only 15 Rolls left in stock - order soon.</div>
+              <div class="amz-product-price">
+                <span class="amz-price-symbol">B2B</span> Quote Only
+              </div>
+            </div>
+            <div class="amz-product-action">
+              <div class="amz-prime">Wholesale Prime</div>
+              <button class="amz-btn" data-product="Qrex Blockout 440GSM">Request Quote</button>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
