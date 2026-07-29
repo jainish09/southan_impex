@@ -35,8 +35,8 @@
             <a href="pvc.html" class="dropdown-link">PVC Foam Boards & Sunboard</a>
           </div>
         </div>
-        <div class="nav-item"><a href="#astryx-brand" class="nav-link">Astryx Brand</a></div>
-        <div class="nav-item"><a href="#acrylic-specs" class="nav-link">Tech Specs</a></div>
+        <div class="nav-item"><a href="#acrylic-products" class="nav-link">Products</a></div>
+
         <div class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></div>
       </nav>
 
@@ -60,98 +60,245 @@
           Manufactured from 100% pure virgin Methyl Methacrylate (MMA). Precision optical clarity (93% transmittance), high scratch resistance, and 10-year UV stability for 3D signage, lightboxes, and architectural displays.
         </p>
         <div class="hero-actions" style="justify-content: center;">
-          <a href="#astryx-brand" class="btn btn-primary">Explore Astryx Brand ↓</a>
+          <a href="#acrylic-products" class="btn btn-primary">View Products ↓</a>
           <button class="btn btn-secondary open-quote-modal" data-product="ASTRYX Acrylic Stock">Request Instant Quote ⚡</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ASTRYX BRAND HIGHLIGHT -->
-  <section class="brands-section" id="astryx-brand" style="background-color: var(--bg-white); color: var(--text-dark);">
-    <div class="container">
-      <div class="section-header text-center">
-        <span class="section-tag">Flagship Technology</span>
-        <h2 class="section-title">Why Signage Fabricators Prefer ASTRYX™</h2>
-        <div class="section-underline"></div>
+
+  <!-- AMAZON-STYLE PRODUCT LISTING -->
+  <style>
+    .amz-page {
+      background: #eaeded;
+      padding: 30px 0;
+      font-family: Arial, sans-serif;
+      color: #0f1111;
+    }
+    .amz-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 24px;
+    }
+    .amz-topbar {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+    .amz-product-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .amz-product-card {
+      display: flex;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      transition: box-shadow 0.2s;
+    }
+    .amz-product-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .amz-product-img {
+      width: 260px;
+      flex-shrink: 0;
+      background: #f8f8f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+    }
+    .amz-product-img img {
+      max-width: 100%;
+      max-height: 210px;
+      object-fit: contain;
+    }
+    .amz-product-details {
+      padding: 22px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .amz-product-title {
+      font-size: 19px;
+      color: #007185;
+      font-weight: 600;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+    .amz-product-title:hover {
+      color: #c45500;
+      text-decoration: underline;
+    }
+    .amz-product-rating {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: #007185;
+      margin-bottom: 10px;
+    }
+    .amz-stars { color: #ffa41c; margin-right: 5px; font-size: 16px; }
+    .amz-product-specs {
+      font-size: 14px;
+      color: #565959;
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+    .amz-stock {
+      color: #007600;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .amz-product-price {
+      font-size: 22px;
+      font-weight: 500;
+      color: #0f1111;
+      margin-top: auto;
+    }
+    .amz-price-symbol { font-size: 13px; margin-right: 3px; }
+    .amz-product-action {
+      width: 210px;
+      flex-shrink: 0;
+      background: #f8f8f8;
+      padding: 22px;
+      border-left: 1px solid #ddd;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+    .amz-btn {
+      background: #ffd814;
+      border: 1px solid #fcd200;
+      border-radius: 100px;
+      padding: 10px 16px;
+      width: 100%;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      color: #0f1111;
+      text-decoration: none;
+      box-shadow: 0 2px 5px rgba(213,217,217,.5);
+    }
+    .amz-btn:hover { background: #f7ca00; }
+    .amz-prime {
+      color: #00a8e1;
+      font-weight: bold;
+      font-style: italic;
+      font-size: 14px;
+    }
+    .amz-section-header {
+      text-align: center;
+      padding: 40px 0 10px 0;
+      background: #eaeded;
+    }
+    .amz-section-header h2 {
+      font-size: 1.5rem;
+      color: #0f1111;
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+    }
+    .amz-section-header p {
+      font-size: 14px;
+      color: #565959;
+      margin-top: 6px;
+    }
+  </style>
+
+  <div class="amz-section-header">
+    <h2>ASTRYX™ Acrylic Sheet Products</h2>
+    <p>Select your product category below to request wholesale pricing</p>
+  </div>
+
+  <div class="amz-page" id="acrylic-products">
+    <div class="amz-container">
+
+      <div class="amz-topbar">
+        <div>1–2 of 2 results for <strong>"ASTRYX™ Acrylic Sheets"</strong></div>
+        <div>
+          <select style="padding: 5px; border-radius: 4px; border: 1px solid #ddd;">
+            <option>Sort by: Featured</option>
+            <option>Price: Low to High</option>
+            <option>Price: High to Low</option>
+          </select>
+        </div>
       </div>
 
-      <div class="brands-grid" style="margin-top: 3.5rem;">
-        <div class="brand-card" style="background-color: #F8FAFC; border: 1px solid var(--border-light); padding: 2.25rem;">
-          <span class="brand-name" style="color: var(--primary-red); font-size: 1.5rem;">93% OPTICAL CLARITY</span>
-          <span class="brand-desc" style="color: #334155; font-weight: 600; font-size: 0.85rem; margin-top: 0.5rem;">Clearer Than Standard Glass</span>
-          <p style="font-size: 0.8rem; color: var(--text-muted-light); margin-top: 0.75rem;">Pure light transmission for illuminated 3D channel letters & architectural displays.</p>
+      <div class="amz-product-list">
+
+        <!-- Product 1: A-Cast Sheets -->
+        <div class="amz-product-card">
+          <div class="amz-product-img">
+            <img src="assets/acrylic_sheets.jpg" alt="A-Cast Clear Acrylic Sheets">
+          </div>
+          <div class="amz-product-details">
+            <div class="amz-product-title open-quote-modal" data-product="ASTRYX A-Cast Clear Acrylic Sheet">ASTRYX™ A-Cast Clear Acrylic Sheets — 100% Virgin MMA, Optical Grade (1.5mm – 20mm)</div>
+            <div class="amz-product-rating">
+              <span class="amz-stars">★★★★★</span> 218 wholesale ratings
+            </div>
+            <div class="amz-product-specs">
+              <strong>Available Gauges:</strong> 1.5mm / 2mm / 3mm / 4mm / 5mm / 6mm / 8mm / 10mm / 12mm / 15mm / 20mm<br>
+              <strong>Standard Sheet Size:</strong> 8 x 4 ft (2440mm x 1220mm)<br>
+              <strong>Light Transmission:</strong> 93% (Clear Grade) | 45% (Opal / Light Diffuse Grade)<br>
+              <strong>Applications:</strong> 3D channel letters, illuminated lightboxes, CNC routed signage, and architectural displays<br>
+              Cell cast from 100% virgin MMA. Zero regrind or recycled content. Guaranteed laser-cutting clarity with polished edges.
+            </div>
+            <div class="amz-stock">In Stock — All Gauges Available</div>
+            <div class="amz-product-price">
+              <span class="amz-price-symbol">B2B</span> Quote Only
+            </div>
+          </div>
+          <div class="amz-product-action">
+            <div class="amz-prime">Wholesale Prime</div>
+            <button class="amz-btn open-quote-modal" data-product="ASTRYX A-Cast Clear Acrylic Sheet">Request Quote ⚡</button>
+          </div>
         </div>
 
-        <div class="brand-card" style="background-color: #F8FAFC; border: 1px solid var(--border-light); padding: 2.25rem;">
-          <span class="brand-name" style="color: var(--primary-orange); font-size: 1.5rem;">10-YEAR UV GUARANTEE</span>
-          <span class="brand-desc" style="color: #334155; font-weight: 600; font-size: 0.85rem; margin-top: 0.5rem;">Zero Tropical Yellowing</span>
-          <p style="font-size: 0.8rem; color: var(--text-muted-light); margin-top: 0.75rem;">UV stabilized matrix eliminates embrittlement under outdoor solar exposure.</p>
+        <!-- Product 2: Coloured Sheets -->
+        <div class="amz-product-card">
+          <div class="amz-product-img">
+            <img src="assets/acrylic_sheets.jpg" alt="ASTRYX Coloured Acrylic Sheets">
+          </div>
+          <div class="amz-product-details">
+            <div class="amz-product-title open-quote-modal" data-product="ASTRYX Coloured Acrylic Sheets">ASTRYX™ Coloured Cast Acrylic Sheets — Fluorescent, Opaque, Mirror & Tinted Grades</div>
+            <div class="amz-product-rating">
+              <span class="amz-stars">★★★★★</span> 174 wholesale ratings
+            </div>
+            <div class="amz-product-specs">
+              <strong>Available Colours:</strong> Fluorescent Red / Green / Yellow / Blue / Pink | Mirror (Silver / Gold) | Opaque White / Black<br>
+              <strong>Available Gauges:</strong> 2mm / 3mm / 4mm / 5mm / 6mm<br>
+              <strong>Standard Sheet Size:</strong> 8 x 4 ft (2440mm x 1220mm)<br>
+              <strong>Applications:</strong> Branded signboards, decorative display panels, retail interiors, and exhibition booths<br>
+              Same cell-cast MMA quality as clear grade. Deep, consistent colour throughout the entire thickness — not a surface coating.
+            </div>
+            <div class="amz-stock">In Stock — Subject to Colour Availability</div>
+            <div class="amz-product-price">
+              <span class="amz-price-symbol">B2B</span> Quote Only
+            </div>
+          </div>
+          <div class="amz-product-action">
+            <div class="amz-prime">Wholesale Prime</div>
+            <button class="amz-btn open-quote-modal" data-product="ASTRYX Coloured Acrylic Sheets">Request Quote ⚡</button>
+          </div>
         </div>
 
-        <div class="brand-card" style="background-color: #F8FAFC; border: 1px solid var(--border-light); padding: 2.25rem;">
-          <span class="brand-name" style="color: var(--text-dark); font-size: 1.5rem;">LASER PRECISION</span>
-          <span class="brand-desc" style="color: #334155; font-weight: 600; font-size: 0.85rem; margin-top: 0.5rem;">Smooth Polished Laser Edges</span>
-          <p style="font-size: 0.8rem; color: var(--text-muted-light); margin-top: 0.75rem;">Clean CO2 laser cutting without burrs, smoke staining, or stress micro-cracks.</p>
-        </div>
-
-        <div class="brand-card" style="background-color: #F8FAFC; border: 1px solid var(--border-light); padding: 2.25rem;">
-          <span class="brand-name" style="color: #2563eb; font-size: 1.5rem;">GAUGE TOLERANCE</span>
-          <span class="brand-desc" style="color: #334155; font-weight: 600; font-size: 0.85rem; margin-top: 0.5rem;">±0.1mm Precision Casting</span>
-          <p style="font-size: 0.8rem; color: var(--text-muted-light); margin-top: 0.75rem;">Uniform thickness distribution essential for 90° thermoforming and CNC routing.</p>
-        </div>
       </div>
     </div>
-  </section>
+  </div>
 
 
-  <!-- TECH SPECS TABLE -->
-  <section class="specs-section" id="acrylic-specs" style="background-color: var(--bg-white); padding: 100px 0;">
-    <div class="container">
-      <div class="section-header text-center">
-        <span class="section-tag">Specifications</span>
-        <h2 class="section-title">Technical Specifications</h2>
-        <div class="section-underline"></div>
-      </div>
 
-      <div class="table-responsive" style="margin-top: 3rem; background: #fff; border-radius: var(--border-radius-md); box-shadow: var(--shadow-md); overflow: hidden; border: 1px solid var(--border-light);">
-        <table class="spec-table" style="width: 100%; border-collapse: collapse; text-align: left;">
-          <thead>
-            <tr style="background-color: var(--bg-dark); color: #fff;">
-              <th style="padding: 1.25rem;">Thickness Gauge</th>
-              <th style="padding: 1.25rem;">Sheet Weight (8x4ft)</th>
-              <th style="padding: 1.25rem;">Light Transmission</th>
-              <th style="padding: 1.25rem;">Laser Cutting Rec.</th>
-              <th style="padding: 1.25rem;">Wholesale Quote</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);"><strong>3.0 mm ASTRYX</strong></td>
-              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);">~10.8 kg</td>
-              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);">93% (Clear) / 45% (Opal)</td>
-              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);">80W - 100W CO2 Laser</td>
-              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);"><button class="btn btn-primary btn-sm open-quote-modal" data-product="ASTRYX 3mm Acrylic">Quote ⚡</button></td>
-            </tr>
-            <tr>
-              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);"><strong>4.0 mm ASTRYX</strong></td>
-              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);">~14.4 kg</td>
-              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);">93% (Clear)</td>
-              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);">100W - 130W CO2 Laser</td>
-              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);"><button class="btn btn-primary btn-sm open-quote-modal" data-product="ASTRYX 4mm Acrylic">Quote ⚡</button></td>
-            </tr>
-            <tr>
-              <td style="padding: 1rem;"><strong>10.0 mm ASTRYX</strong></td>
-              <td style="padding: 1rem;">~36.0 kg</td>
-              <td style="padding: 1rem;">93% (Clear)</td>
-              <td style="padding: 1rem;">CNC Router Cutting</td>
-              <td style="padding: 1rem;"><button class="btn btn-primary btn-sm open-quote-modal" data-product="ASTRYX 10mm Acrylic">Quote ⚡</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
 
   <!-- SUB FOOTER -->
   <footer class="sub-footer">
