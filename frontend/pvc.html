@@ -19,9 +19,23 @@
       <nav class="nav-menu">
         <div class="nav-item"><a href="index.html#home" class="nav-link">Home</a></div>
         <div class="nav-item"><a href="index.html#about" class="nav-link">About Us</a></div>
-        <div class="nav-item active"><a href="index.html#products" class="nav-link">Products</a></div>
+        <div class="nav-item active">
+          <a href="index.html#products" class="nav-link">
+            Products 
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <div class="dropdown-menu">
+            <a href="flex.html" class="dropdown-link">Flex Printing Media</a>
+            <a href="vinyl.html" class="dropdown-link">Self Adhesive Vinyl</a>
+            <a href="acrylic.html" class="dropdown-link">ASTRYX™ Cast Acrylic</a>
+            <a href="acp.html" class="dropdown-link">ACP Composite Panels</a>
+            <a href="led.html" class="dropdown-link">Samsung LED Modules</a>
+            <a href="pvc.html" class="dropdown-link">PVC Foam Boards & Sunboard</a>
+          </div>
+        </div>
         <div class="nav-item"><a href="#pvc-brands" class="nav-link">PVC Brands</a></div>
-        <div class="nav-item"><a href="#pvc-range" class="nav-link">Product Range</a></div>
         <div class="nav-item"><a href="#pvc-specs" class="nav-link">Tech Specs</a></div>
         <div class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></div>
       </nav>
@@ -78,42 +92,6 @@
     </div>
   </section>
 
-  <!-- PRODUCT RANGE -->
-  <section class="products-section" id="pvc-range" style="background-color: var(--bg-light);">
-    <div class="container">
-      <div class="section-header text-center">
-        <span class="section-tag">Portfolio</span>
-        <h2 class="section-title">PVC & Sunboard Range</h2>
-        <div class="section-underline"></div>
-      </div>
-
-      <div class="category-variant-grid">
-        <div class="variant-item-card">
-          <div class="variant-img-box"><img src="assets/pvc_boards.jpg" alt="Celuka PVC Foam Board"></div>
-          <div class="variant-body">
-            <div>
-              <span class="variant-label">8mm - 18mm Density</span>
-              <h3 class="variant-title">Celuka PVC Foam Board</h3>
-              <p class="variant-desc">Hard surface waterproof PVC board ideal for 3D CNC carving & exterior signage.</p>
-            </div>
-            <button class="btn btn-primary btn-sm open-quote-modal" data-product="Celuka PVC Foam Board">Request Rate Quote</button>
-          </div>
-        </div>
-
-        <div class="variant-item-card">
-          <div class="variant-img-box"><img src="assets/pvc_boards.jpg" alt="Lightweight Sunboard Sheet"></div>
-          <div class="variant-body">
-            <div>
-              <span class="variant-label">3mm - 5mm Indoor Sheet</span>
-              <h3 class="variant-title">Sunboard Display Sheet</h3>
-              <p class="variant-desc">Smooth rigid paper-faced foam board for direct UV flatbed printing & exhibition stands.</p>
-            </div>
-            <button class="btn btn-primary btn-sm open-quote-modal" data-product="Sunboard Display Sheet">Request Rate Quote</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- TECH SPECS TABLE -->
   <section class="specs-section" id="pvc-specs" style="background-color: var(--bg-white); padding: 100px 0;">

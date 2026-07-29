@@ -19,9 +19,23 @@
       <nav class="nav-menu">
         <div class="nav-item"><a href="index.html#home" class="nav-link">Home</a></div>
         <div class="nav-item"><a href="index.html#about" class="nav-link">About Us</a></div>
-        <div class="nav-item active"><a href="index.html#products" class="nav-link">Products</a></div>
+        <div class="nav-item active">
+          <a href="index.html#products" class="nav-link">
+            Products 
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <div class="dropdown-menu">
+            <a href="flex.html" class="dropdown-link">Flex Printing Media</a>
+            <a href="vinyl.html" class="dropdown-link">Self Adhesive Vinyl</a>
+            <a href="acrylic.html" class="dropdown-link">ASTRYX™ Cast Acrylic</a>
+            <a href="acp.html" class="dropdown-link">ACP Composite Panels</a>
+            <a href="led.html" class="dropdown-link">Samsung LED Modules</a>
+            <a href="pvc.html" class="dropdown-link">PVC Foam Boards & Sunboard</a>
+          </div>
+        </div>
         <div class="nav-item"><a href="#acp-brands" class="nav-link">ACP Brands</a></div>
-        <div class="nav-item"><a href="#acp-range" class="nav-link">Product Range</a></div>
         <div class="nav-item"><a href="#acp-specs" class="nav-link">Tech Specs</a></div>
         <div class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></div>
       </nav>
@@ -84,54 +98,6 @@
     </div>
   </section>
 
-  <!-- PRODUCT RANGE -->
-  <section class="products-section" id="acp-range" style="background-color: var(--bg-light);">
-    <div class="container">
-      <div class="section-header text-center">
-        <span class="section-tag">Cladding Portfolio</span>
-        <h2 class="section-title">ACP Panel Range</h2>
-        <div class="section-underline"></div>
-      </div>
-
-      <div class="category-variant-grid">
-        <div class="variant-item-card">
-          <div class="variant-img-box"><img src="assets/acp_sheets.jpg" alt="PVDF Exterior ACP"></div>
-          <div class="variant-body">
-            <div>
-              <span class="variant-label">4mm / 0.5mm Skin</span>
-              <h3 class="variant-title">PVDF Exterior ACP</h3>
-              <p class="variant-desc">15-year weather warranty panels for commercial building facades & elevation cladding.</p>
-            </div>
-            <button class="btn btn-primary btn-sm open-quote-modal" data-product="PVDF Exterior ACP">Request Rate Quote</button>
-          </div>
-        </div>
-
-        <div class="variant-item-card">
-          <div class="variant-img-box"><img src="assets/acp_sheets.jpg" alt="Polyester Interior ACP"></div>
-          <div class="variant-body">
-            <div>
-              <span class="variant-label">3mm / 0.25mm Skin</span>
-              <h3 class="variant-title">Polyester Interior ACP</h3>
-              <p class="variant-desc">Smooth high gloss & matte panels for retail store signboards & interior partitions.</p>
-            </div>
-            <button class="btn btn-primary btn-sm open-quote-modal" data-product="Polyester Interior ACP">Request Rate Quote</button>
-          </div>
-        </div>
-
-        <div class="variant-item-card">
-          <div class="variant-img-box"><img src="assets/acp_sheets.jpg" alt="Wooden & Marble ACP"></div>
-          <div class="variant-body">
-            <div>
-              <span class="variant-label">Textured Series</span>
-              <h3 class="variant-title">Wooden & Marble ACP</h3>
-              <p class="variant-desc">Natural wood grain and stone marble finish composite panels for architectural design.</p>
-            </div>
-            <button class="btn btn-primary btn-sm open-quote-modal" data-product="Textured Wooden ACP">Request Rate Quote</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- TECH SPECS TABLE -->
   <section class="specs-section" id="acp-specs" style="background-color: var(--bg-white); padding: 100px 0;">

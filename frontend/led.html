@@ -19,9 +19,23 @@
       <nav class="nav-menu">
         <div class="nav-item"><a href="index.html#home" class="nav-link">Home</a></div>
         <div class="nav-item"><a href="index.html#about" class="nav-link">About Us</a></div>
-        <div class="nav-item active"><a href="index.html#products" class="nav-link">Products</a></div>
+        <div class="nav-item active">
+          <a href="index.html#products" class="nav-link">
+            Products 
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <div class="dropdown-menu">
+            <a href="flex.html" class="dropdown-link">Flex Printing Media</a>
+            <a href="vinyl.html" class="dropdown-link">Self Adhesive Vinyl</a>
+            <a href="acrylic.html" class="dropdown-link">ASTRYX™ Cast Acrylic</a>
+            <a href="acp.html" class="dropdown-link">ACP Composite Panels</a>
+            <a href="led.html" class="dropdown-link">Samsung LED Modules</a>
+            <a href="pvc.html" class="dropdown-link">PVC Foam Boards & Sunboard</a>
+          </div>
+        </div>
         <div class="nav-item"><a href="#led-brands" class="nav-link">LED Brands</a></div>
-        <div class="nav-item"><a href="#led-range" class="nav-link">Product Range</a></div>
         <div class="nav-item"><a href="#led-specs" class="nav-link">Tech Specs</a></div>
         <div class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></div>
       </nav>
@@ -84,54 +98,6 @@
     </div>
   </section>
 
-  <!-- PRODUCT RANGE -->
-  <section class="products-section" id="led-range" style="background-color: var(--bg-light);">
-    <div class="container">
-      <div class="section-header text-center">
-        <span class="section-tag">Lighting Portfolio</span>
-        <h2 class="section-title">LED Lighting Range</h2>
-        <div class="section-underline"></div>
-      </div>
-
-      <div class="category-variant-grid">
-        <div class="variant-item-card">
-          <div class="variant-img-box"><img src="assets/led_modules.jpg" alt="Samsung 3-LED Module"></div>
-          <div class="variant-body">
-            <div>
-              <span class="variant-label">1.2W / IP68 Waterproof</span>
-              <h3 class="variant-title">Samsung 3-LED Module</h3>
-              <p class="variant-desc">160° optical lens module for 3D channel letters & illuminated lightboxes.</p>
-            </div>
-            <button class="btn btn-primary btn-sm open-quote-modal" data-product="Samsung 3-LED Module">Request Rate Quote</button>
-          </div>
-        </div>
-
-        <div class="variant-item-card">
-          <div class="variant-img-box"><img src="assets/led_strips.jpg" alt="High Density Flexible LED Strip"></div>
-          <div class="variant-body">
-            <div>
-              <span class="variant-label">120 LED/m / 12V DC</span>
-              <h3 class="variant-title">Flexible LED Strips</h3>
-              <p class="variant-desc">High density 12V/24V flexible strip reels for halo-lit letters & cove illumination.</p>
-            </div>
-            <button class="btn btn-primary btn-sm open-quote-modal" data-product="High Density LED Strips">Request Rate Quote</button>
-          </div>
-        </div>
-
-        <div class="variant-item-card">
-          <div class="variant-img-box"><img src="assets/led_modules.jpg" alt="Rainproof LED Power Supply"></div>
-          <div class="variant-body">
-            <div>
-              <span class="variant-label">12V 300W / 400W</span>
-              <h3 class="variant-title">Rainproof Power Supplies</h3>
-              <p class="variant-desc">Heavy duty switching power transformers with short-circuit & overload protection.</p>
-            </div>
-            <button class="btn btn-primary btn-sm open-quote-modal" data-product="12V LED Power Supply">Request Rate Quote</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- TECH SPECS TABLE -->
   <section class="specs-section" id="led-specs" style="background-color: var(--bg-white); padding: 100px 0;">

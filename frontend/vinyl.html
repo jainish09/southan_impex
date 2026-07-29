@@ -19,9 +19,23 @@
       <nav class="nav-menu">
         <div class="nav-item"><a href="index.html#home" class="nav-link">Home</a></div>
         <div class="nav-item"><a href="index.html#about" class="nav-link">About Us</a></div>
-        <div class="nav-item active"><a href="index.html#products" class="nav-link">Products</a></div>
+        <div class="nav-item active">
+          <a href="index.html#products" class="nav-link">
+            Products 
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <div class="dropdown-menu">
+            <a href="flex.html" class="dropdown-link">Flex Printing Media</a>
+            <a href="vinyl.html" class="dropdown-link">Self Adhesive Vinyl</a>
+            <a href="acrylic.html" class="dropdown-link">ASTRYX™ Cast Acrylic</a>
+            <a href="acp.html" class="dropdown-link">ACP Composite Panels</a>
+            <a href="led.html" class="dropdown-link">Samsung LED Modules</a>
+            <a href="pvc.html" class="dropdown-link">PVC Foam Boards & Sunboard</a>
+          </div>
+        </div>
         <div class="nav-item"><a href="#vinyl-brands" class="nav-link">Vinyl Brands</a></div>
-        <div class="nav-item"><a href="#vinyl-range" class="nav-link">Product Range</a></div>
         <div class="nav-item"><a href="#vinyl-specs" class="nav-link">Tech Specs</a></div>
         <div class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></div>
       </nav>
@@ -63,7 +77,7 @@
       </div>
 
       <div class="brands-grid" style="margin-top: 3.5rem;">
-        <div class="brand-card">
+        <a href="sunstar-vinyl.html" class="brand-card" style="text-decoration: none;">
           <div class="brand-card-img">
             <img src="assets/sunstar-vinyl.jpg" alt="SUNSTAR VINYL" onerror="this.style.display='none'">
           </div>
@@ -72,9 +86,9 @@
             <span class="brand-desc" style="color: #334155; font-weight: 600; font-size: 0.8rem; margin-top: 0.5rem;">Premium Graphics</span>
             <p style="font-size: 0.75rem; color: var(--text-muted-light); margin-top: 0.5rem;">High adhesion printable white vinyl rolls engineered for outdoor wall graphics & signboards.</p>
           </div>
-        </div>
+        </a>
 
-        <div class="brand-card">
+        <a href="starflex-vinyl.html" class="brand-card" style="text-decoration: none;">
           <div class="brand-card-img">
             <img src="assets/starflex-vinyl.jpg" alt="STARFLEX" onerror="this.style.display='none'">
           </div>
@@ -83,59 +97,11 @@
             <span class="brand-desc" style="color: #334155; font-weight: 600; font-size: 0.8rem; margin-top: 0.5rem;">Korea's Premier</span>
             <p style="font-size: 0.75rem; color: var(--text-muted-light); margin-top: 0.5rem;">Top-tier self-adhesive vinyl for high-end illuminated displays and vehicle wraps.</p>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- PRODUCT RANGE -->
-  <section class="products-section" id="vinyl-range" style="background-color: var(--bg-light);">
-    <div class="container">
-      <div class="section-header text-center">
-        <span class="section-tag">Product Variants</span>
-        <h2 class="section-title">Vinyl Film Range</h2>
-        <div class="section-underline"></div>
-      </div>
-
-      <div class="category-variant-grid">
-        <div class="variant-item-card">
-          <div class="variant-img-box"><img src="assets/vinyl_rolls.jpg" alt="Glossy White Printable Vinyl"></div>
-          <div class="variant-body">
-            <div>
-              <span class="variant-label">100 Micron Polymeric</span>
-              <h3 class="variant-title">Printable Glossy Vinyl</h3>
-              <p class="variant-desc">Vibrant gloss surface for retail storefront graphics & outdoor signs.</p>
-            </div>
-            <button class="btn btn-primary btn-sm open-quote-modal" data-product="Glossy White Vinyl">Request Rate Quote</button>
-          </div>
-        </div>
-
-        <div class="variant-item-card">
-          <div class="variant-img-box"><img src="assets/vinyl_rolls.jpg" alt="Ultra Clear Window Vinyl"></div>
-          <div class="variant-body">
-            <div>
-              <span class="variant-label">Optical Transparency</span>
-              <h3 class="variant-title">Ultra-Clear Glass Vinyl</h3>
-              <p class="variant-desc">Crystal clear adhesive film for architectural glass window graphics.</p>
-            </div>
-            <button class="btn btn-primary btn-sm open-quote-modal" data-product="Ultra Clear Glass Vinyl">Request Rate Quote</button>
-          </div>
-        </div>
-
-        <div class="variant-item-card">
-          <div class="variant-img-box"><img src="assets/vinyl_rolls.jpg" alt="UV Overlaminate Film"></div>
-          <div class="variant-body">
-            <div>
-              <span class="variant-label">Gloss / Matte Protection</span>
-              <h3 class="variant-title">UV Overlaminate Film</h3>
-              <p class="variant-desc">Protective cold laminating film preventing UV fading & scratch damage.</p>
-            </div>
-            <button class="btn btn-primary btn-sm open-quote-modal" data-product="UV Overlaminate Film">Request Rate Quote</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- TECH SPECS TABLE -->
   <section class="specs-section" id="vinyl-specs" style="background-color: var(--bg-white); padding: 100px 0;">

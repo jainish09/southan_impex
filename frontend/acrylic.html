@@ -19,9 +19,23 @@
       <nav class="nav-menu">
         <div class="nav-item"><a href="index.html#home" class="nav-link">Home</a></div>
         <div class="nav-item"><a href="index.html#about" class="nav-link">About Us</a></div>
-        <div class="nav-item active"><a href="index.html#products" class="nav-link">Products</a></div>
+        <div class="nav-item active">
+          <a href="index.html#products" class="nav-link">
+            Products 
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <div class="dropdown-menu">
+            <a href="flex.html" class="dropdown-link">Flex Printing Media</a>
+            <a href="vinyl.html" class="dropdown-link">Self Adhesive Vinyl</a>
+            <a href="acrylic.html" class="dropdown-link">ASTRYX™ Cast Acrylic</a>
+            <a href="acp.html" class="dropdown-link">ACP Composite Panels</a>
+            <a href="led.html" class="dropdown-link">Samsung LED Modules</a>
+            <a href="pvc.html" class="dropdown-link">PVC Foam Boards & Sunboard</a>
+          </div>
+        </div>
         <div class="nav-item"><a href="#astryx-brand" class="nav-link">Astryx Brand</a></div>
-        <div class="nav-item"><a href="#acrylic-range" class="nav-link">Product Range</a></div>
         <div class="nav-item"><a href="#acrylic-specs" class="nav-link">Tech Specs</a></div>
         <div class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></div>
       </nav>
@@ -46,7 +60,7 @@
           Manufactured from 100% pure virgin Methyl Methacrylate (MMA). Precision optical clarity (93% transmittance), high scratch resistance, and 10-year UV stability for 3D signage, lightboxes, and architectural displays.
         </p>
         <div class="hero-actions" style="justify-content: center;">
-          <a href="#acrylic-range" class="btn btn-primary">Explore Colors & Gauges ↓</a>
+          <a href="#astryx-brand" class="btn btn-primary">Explore Astryx Brand ↓</a>
           <button class="btn btn-secondary open-quote-modal" data-product="ASTRYX Acrylic Stock">Request Instant Quote ⚡</button>
         </div>
       </div>
@@ -90,54 +104,6 @@
     </div>
   </section>
 
-  <!-- PRODUCT RANGE -->
-  <section class="products-section" id="acrylic-range" style="background-color: var(--bg-light);">
-    <div class="container">
-      <div class="section-header text-center">
-        <span class="section-tag">Color & Finish Portfolio</span>
-        <h2 class="section-title">ASTRYX™ Acrylic Product Range</h2>
-        <div class="section-underline"></div>
-      </div>
-
-      <div class="category-variant-grid">
-        <div class="variant-item-card">
-          <div class="variant-img-box"><img src="assets/acrylic_sheets.jpg" alt="ASTRYX Clear Acrylic Sheet"></div>
-          <div class="variant-body">
-            <div>
-              <span class="variant-label">1.5mm - 20mm Gauges</span>
-              <h3 class="variant-title">Crystal Clear Acrylic</h3>
-              <p class="variant-desc">Ultra-high transparency optical grade cast acrylic sheets for lightboxes & push-through letters.</p>
-            </div>
-            <button class="btn btn-primary btn-sm open-quote-modal" data-product="ASTRYX Clear Acrylic">Request Rate Quote</button>
-          </div>
-        </div>
-
-        <div class="variant-item-card">
-          <div class="variant-img-box"><img src="assets/acrylic_sheets.jpg" alt="ASTRYX Opaque Opal White Acrylic"></div>
-          <div class="variant-body">
-            <div>
-              <span class="variant-label">Uniform LED Diffuser</span>
-              <h3 class="variant-title">Opal White Acrylic</h3>
-              <p class="variant-desc">Diffuses LED hotspots evenly for 3D channel letter faces & illuminated signboards.</p>
-            </div>
-            <button class="btn btn-primary btn-sm open-quote-modal" data-product="ASTRYX Opal White Acrylic">Request Rate Quote</button>
-          </div>
-        </div>
-
-        <div class="variant-item-card">
-          <div class="variant-img-box"><img src="assets/acrylic_sheets.jpg" alt="ASTRYX Mirror Acrylic"></div>
-          <div class="variant-body">
-            <div>
-              <span class="variant-label">Gold & Silver Specular</span>
-              <h3 class="variant-title">Acrylic Mirror Sheets</h3>
-              <p class="variant-desc">Shatterproof gold and silver acrylic mirrors for luxury retail branding & interior decor.</p>
-            </div>
-            <button class="btn btn-primary btn-sm open-quote-modal" data-product="ASTRYX Mirror Acrylic">Request Rate Quote</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- TECH SPECS TABLE -->
   <section class="specs-section" id="acrylic-specs" style="background-color: var(--bg-white); padding: 100px 0;">
