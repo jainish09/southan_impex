@@ -3,9 +3,178 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ASTRYX™ Cast Acrylic Sheets | Southern Impex</title>
-  <meta name="description" content="South India's premier master supplier for ASTRYX 100% Virgin MMA Cast Acrylic Sheets (1.5mm - 20mm), Clear, White, Black, Mirror & Fluorescent Acrylic.">
+  <title>Cast Acrylic Sheets | ASTRYX, ASTARI, DG, BNZ & ASIANN | Southern Impex</title>
+  <meta name="description" content="Master wholesale supplier for ASTRYX, ASTARI, DG, BNZ, and ASIANN Cast Acrylic Sheets (1.5mm - 20mm). Clear, White, Colored, Mirror & LED Light Guide Panels.">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .amz-page {
+      background: #eaeded;
+      padding: 30px 0;
+      font-family: var(--font-body), Arial, sans-serif;
+      color: #0f1111;
+    }
+    .amz-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 24px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .amz-topbar {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: #565959;
+    }
+    .amz-product-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .amz-product-card {
+      display: flex;
+      border: 1px solid #e7e7e7;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .amz-product-card:hover {
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      border-color: #d5d9d9;
+    }
+    .amz-product-img {
+      width: 260px;
+      flex-shrink: 0;
+      background: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      position: relative;
+    }
+    .amz-product-img img {
+      max-width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .amz-badge-floating {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: #111827;
+      color: #00f2fe;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.05em;
+    }
+    .amz-product-details {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .amz-product-title {
+      font-size: 18px;
+      color: #007185;
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.3;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .amz-product-title:hover {
+      color: #c45500;
+      text-decoration: underline;
+    }
+    .amz-product-rating {
+      display: flex;
+      align-items: center;
+      font-size: 13.5px;
+      color: #007185;
+      margin-bottom: 10px;
+    }
+    .amz-stars { color: #ffa41c; margin-right: 6px; font-size: 15px; }
+    .amz-product-specs {
+      font-size: 13.5px;
+      color: #444;
+      margin-bottom: 12px;
+      line-height: 1.55;
+    }
+    .amz-stock {
+      color: #007600;
+      font-size: 13.5px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .amz-product-price {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0f1111;
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .amz-price-symbol {
+      font-size: 12px;
+      background: #232f3e;
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .amz-product-action {
+      width: 210px;
+      flex-shrink: 0;
+      background: #fafafa;
+      padding: 20px;
+      border-left: 1px solid #e7e7e7;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .amz-btn {
+      background: linear-gradient(180deg, #ffd814 0%, #f7ca00 100%);
+      border: 1px solid #fcd200;
+      border-radius: 100px;
+      padding: 10px 16px;
+      width: 100%;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(213,217,217,.5);
+      color: #0f1111;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .amz-btn:hover { background: #f0c14b; transform: translateY(-1px); }
+    .amz-prime {
+      color: #00a8e1;
+      font-weight: 800;
+      font-style: italic;
+      font-size: 13px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    @media (max-width: 992px) {
+      .amz-product-card { flex-direction: column; }
+      .amz-product-img { width: 100%; height: 220px; }
+      .amz-product-action { width: 100%; border-left: none; border-top: 1px solid #e7e7e7; }
+    }
+  </style>
 </head>
 <body id="acrylic-page">
 
@@ -28,6 +197,8 @@
           </a>
           <div class="dropdown-menu">
             <a href="flex.html" class="dropdown-link">Flex Printing Media</a>
+            <a href="cloth-canvas.html" class="dropdown-link">Cloth & Canvas Media</a>
+            <a href="pe-sheets.html" class="dropdown-link">Polyethylene Flexible Sheets</a>
             <a href="vinyl.html" class="dropdown-link">Self Adhesive Vinyl</a>
             <a href="acrylic.html" class="dropdown-link">ASTRYX™ Cast Acrylic</a>
             <a href="acp.html" class="dropdown-link">ACP Composite Panels</a>
@@ -35,13 +206,14 @@
             <a href="pvc.html" class="dropdown-link">PVC Foam Boards & Sunboard</a>
           </div>
         </div>
+        <div class="nav-item"><a href="#acrylic-brands" class="nav-link">Acrylic Brands</a></div>
         <div class="nav-item"><a href="#acrylic-products" class="nav-link">Products</a></div>
-
+        <div class="nav-item"><a href="#acrylic-specs" class="nav-link">Tech Specs</a></div>
         <div class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></div>
       </nav>
 
       <div class="header-action">
-        <button class="btn btn-primary open-quote-modal" data-product="ASTRYX Acrylic Sheets">Request Rate Card</button>
+        <button class="btn btn-primary open-quote-modal" data-product="Cast Acrylic Sheets Wholesale">Request Rate Card</button>
       </div>
 
       <button class="mobile-toggle" aria-label="Toggle Navigation">
@@ -51,245 +223,253 @@
   </header>
 
   <!-- HERO SECTION -->
-  <section class="hero hero-category-page" style="background: linear-gradient(180deg, rgba(18, 18, 18, 0.88) 0%, rgba(10, 10, 12, 0.98) 100%), url('assets/acrylic_sheets.jpg') center/cover no-repeat;">
+  <section class="hero hero-category-page" style="background: linear-gradient(180deg, rgba(18, 18, 18, 0.88) 0%, rgba(10, 10, 12, 0.98) 100%), url('assets/acrylic_sheets.jpg') center/cover no-repeat; padding: 140px 0 80px 0;">
     <div class="container">
       <div class="hero-content text-center" style="max-width: 850px; margin: 0 auto;">
-        <span class="section-tag" style="color: var(--primary-orange);">Flagship Brand</span>
-        <h1 class="hero-title">ASTRYX™ Cast Acrylic Sheets</h1>
-        <p class="hero-description">
-          Manufactured from 100% pure virgin Methyl Methacrylate (MMA). Precision optical clarity (93% transmittance), high scratch resistance, and 10-year UV stability for 3D signage, lightboxes, and architectural displays.
+        <span class="section-tag" style="color: var(--primary-orange);">AUTHORIZED IMPORTER & DISTRIBUTOR</span>
+        <h1 class="hero-title" style="font-size: 3.2rem; line-height: 1.15;">Premium Cast Acrylic Sheets</h1>
+        <p class="hero-description" style="max-width: 750px; margin: 0 auto 2.25rem auto;">
+          South India's premier master supplier for <strong>ASTRYX™, ASTARI, DG, BNZ, and ASIANN</strong> Cast Acrylic Sheets (1.5mm - 20mm). 100% Virgin MMA cell-cast sheets with 93% optical clarity for 3D channel letters, lightboxes, and laser cutting.
         </p>
         <div class="hero-actions" style="justify-content: center;">
-          <a href="#acrylic-products" class="btn btn-primary">View Products ↓</a>
-          <button class="btn btn-secondary open-quote-modal" data-product="ASTRYX Acrylic Stock">Request Instant Quote ⚡</button>
+          <a href="#acrylic-products" class="btn btn-primary">Explore Products Below ↓</a>
+          <button class="btn btn-secondary open-quote-modal" data-product="Cast Acrylic Bulk Quote">Request Instant Quote ⚡</button>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- AUTHORIZED BRANDS WE DEAL IN FOR ACRYLIC -->
+  <section class="brands-section" id="acrylic-brands" style="background-color: var(--bg-white); color: var(--text-dark); padding: 80px 0 40px 0;">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">PREMIER ACRYLIC BRANDS</span>
+        <h2 class="section-title">Acrylic Sheet Brands We Deal In</h2>
+        <div class="section-underline"></div>
+        <p class="section-subtitle">We stock and distribute world-renowned, certified cell-cast acrylic brands across South India.</p>
+      </div>
 
-  <!-- AMAZON-STYLE PRODUCT LISTING -->
-  <style>
-    .amz-page {
-      background: #eaeded;
-      padding: 30px 0;
-      font-family: Arial, sans-serif;
-      color: #0f1111;
-    }
-    .amz-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      background: #fff;
-      padding: 24px;
-    }
-    .amz-topbar {
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 14px;
-    }
-    .amz-product-list {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .amz-product-card {
-      display: flex;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      overflow: hidden;
-      background: #fff;
-      transition: box-shadow 0.2s;
-    }
-    .amz-product-card:hover {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .amz-product-img {
-      width: 260px;
-      flex-shrink: 0;
-      background: #f8f8f8;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 24px;
-    }
-    .amz-product-img img {
-      max-width: 100%;
-      max-height: 210px;
-      object-fit: contain;
-    }
-    .amz-product-details {
-      padding: 22px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .amz-product-title {
-      font-size: 19px;
-      color: #007185;
-      font-weight: 600;
-      margin-bottom: 8px;
-      cursor: pointer;
-    }
-    .amz-product-title:hover {
-      color: #c45500;
-      text-decoration: underline;
-    }
-    .amz-product-rating {
-      display: flex;
-      align-items: center;
-      font-size: 14px;
-      color: #007185;
-      margin-bottom: 10px;
-    }
-    .amz-stars { color: #ffa41c; margin-right: 5px; font-size: 16px; }
-    .amz-product-specs {
-      font-size: 14px;
-      color: #565959;
-      margin-bottom: 15px;
-      line-height: 1.6;
-    }
-    .amz-stock {
-      color: #007600;
-      font-size: 14px;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-    .amz-product-price {
-      font-size: 22px;
-      font-weight: 500;
-      color: #0f1111;
-      margin-top: auto;
-    }
-    .amz-price-symbol { font-size: 13px; margin-right: 3px; }
-    .amz-product-action {
-      width: 210px;
-      flex-shrink: 0;
-      background: #f8f8f8;
-      padding: 22px;
-      border-left: 1px solid #ddd;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-    }
-    .amz-btn {
-      background: #ffd814;
-      border: 1px solid #fcd200;
-      border-radius: 100px;
-      padding: 10px 16px;
-      width: 100%;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      text-align: center;
-      color: #0f1111;
-      text-decoration: none;
-      box-shadow: 0 2px 5px rgba(213,217,217,.5);
-    }
-    .amz-btn:hover { background: #f7ca00; }
-    .amz-prime {
-      color: #00a8e1;
-      font-weight: bold;
-      font-style: italic;
-      font-size: 14px;
-    }
-    .amz-section-header {
-      text-align: center;
-      padding: 40px 0 10px 0;
-      background: #eaeded;
-    }
-    .amz-section-header h2 {
-      font-size: 1.5rem;
-      color: #0f1111;
-      font-family: Arial, sans-serif;
-      font-weight: 700;
-    }
-    .amz-section-header p {
-      font-size: 14px;
-      color: #565959;
-      margin-top: 6px;
-    }
-  </style>
+      <div class="brands-grid" style="margin-top: 3rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+        <div class="brand-card">
+          <div class="brand-card-img" style="background: #0f172a; padding: 15px;">
+            <span style="color: #ff9900; font-weight: 900; font-size: 1.5rem; font-family: var(--font-headings);">ASTRYX™</span>
+          </div>
+          <div class="brand-card-body">
+            <span class="brand-name" style="color: var(--primary-orange);">ASTRYX™</span>
+            <span class="brand-desc">100% Virgin MMA Flagship</span>
+          </div>
+        </div>
 
-  <div class="amz-section-header">
-    <h2>ASTRYX™ Acrylic Sheet Products</h2>
-    <p>Select your product category below to request wholesale pricing</p>
-  </div>
+        <div class="brand-card">
+          <div class="brand-card-img" style="background: #0f172a; padding: 15px;">
+            <span style="color: #00f2fe; font-weight: 900; font-size: 1.5rem; font-family: var(--font-headings);">ASTARI</span>
+          </div>
+          <div class="brand-card-body">
+            <span class="brand-name" style="color: #007185;">ASTARI</span>
+            <span class="brand-desc">Premium Cast Acrylic</span>
+          </div>
+        </div>
 
+        <div class="brand-card">
+          <div class="brand-card-img" style="background: #0f172a; padding: 15px;">
+            <span style="color: #ff0055; font-weight: 900; font-size: 1.5rem; font-family: var(--font-headings);">DG</span>
+          </div>
+          <div class="brand-card-body">
+            <span class="brand-name" style="color: var(--text-dark);">DG ACRYLIC</span>
+            <span class="brand-desc">CNC & Signage Grade</span>
+          </div>
+        </div>
+
+        <div class="brand-card">
+          <div class="brand-card-img" style="background: #0f172a; padding: 15px;">
+            <span style="color: #00ffaa; font-weight: 900; font-size: 1.5rem; font-family: var(--font-headings);">BNZ</span>
+          </div>
+          <div class="brand-card-body">
+            <span class="brand-name" style="color: var(--text-dark);">BNZ ACRYLIC</span>
+            <span class="brand-desc">Light Guide & Display</span>
+          </div>
+        </div>
+
+        <div class="brand-card">
+          <div class="brand-card-img" style="background: #0f172a; padding: 15px;">
+            <span style="color: #ffb400; font-weight: 900; font-size: 1.5rem; font-family: var(--font-headings);">ASIANN</span>
+          </div>
+          <div class="brand-card-body">
+            <span class="brand-name" style="color: var(--text-dark);">ASIANN</span>
+            <span class="brand-desc">Commercial Cast Acrylic</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT LISTING SECTION -->
   <div class="amz-page" id="acrylic-products">
     <div class="amz-container">
 
       <div class="amz-topbar">
-        <div>1–2 of 2 results for <strong>"ASTRYX™ Acrylic Sheets"</strong></div>
+        <div>1-5 of 5 results for <strong>"Cast Acrylic Sheets (ASTRYX, ASTARI, DG, BNZ, ASIANN)"</strong></div>
         <div>
-          <select style="padding: 5px; border-radius: 4px; border: 1px solid #ddd;">
-            <option>Sort by: Featured</option>
-            <option>Price: Low to High</option>
-            <option>Price: High to Low</option>
+          <label style="margin-right: 5px;">Sort by:</label>
+          <select style="padding: 6px 12px; border-radius: 4px; border: 1px solid #ccc; background: #fff; font-size: 13.5px;">
+            <option>Featured Acrylic Brands</option>
+            <option>Gauge: Low to High</option>
+            <option>Gauge: High to Low</option>
+            <option>Avg. Customer Review</option>
           </select>
         </div>
       </div>
 
       <div class="amz-product-list">
 
-        <!-- Product 1: A-Cast Sheets -->
+        <!-- Product 1: ASTRYX Cast Acrylic -->
         <div class="amz-product-card">
           <div class="amz-product-img">
-            <img src="assets/acrylic_sheets.jpg" alt="A-Cast Clear Acrylic Sheets">
+            <span class="amz-badge-floating" style="color: #ff9900;">ASTRYX FLAGSHIP</span>
+            <img src="assets/acrylic_sheets.jpg" alt="ASTRYX Virgin Cast Acrylic Sheet">
           </div>
           <div class="amz-product-details">
-            <div class="amz-product-title open-quote-modal" data-product="ASTRYX A-Cast Clear Acrylic Sheet">ASTRYX™ A-Cast Clear Acrylic Sheets — 100% Virgin MMA, Optical Grade (1.5mm – 20mm)</div>
+            <span class="amz-product-title open-quote-modal" data-product="ASTRYX 100% Virgin Cast Acrylic Sheet">
+              ASTRYX™ 100% Virgin MMA Cast Acrylic Sheets — Clear, Opal White & Colors (1.5mm – 20mm)
+            </span>
             <div class="amz-product-rating">
               <span class="amz-stars">★★★★★</span> 218 wholesale ratings
             </div>
             <div class="amz-product-specs">
-              <strong>Available Gauges:</strong> 1.5mm / 2mm / 3mm / 4mm / 5mm / 6mm / 8mm / 10mm / 12mm / 15mm / 20mm<br>
-              <strong>Standard Sheet Size:</strong> 8 x 4 ft (2440mm x 1220mm)<br>
-              <strong>Light Transmission:</strong> 93% (Clear Grade) | 45% (Opal / Light Diffuse Grade)<br>
-              <strong>Applications:</strong> 3D channel letters, illuminated lightboxes, CNC routed signage, and architectural displays<br>
-              Cell cast from 100% virgin MMA. Zero regrind or recycled content. Guaranteed laser-cutting clarity with polished edges.
+              <strong>Available Gauges:</strong> 1.5mm, 2mm, 3mm, 4mm, 5mm, 6mm, 8mm, 10mm, 12mm, 15mm, 20mm<br>
+              <strong>Standard Sheet Sizes:</strong> 8 x 4 ft (2440mm x 1220mm) & Custom Cut Sizes<br>
+              <strong>Optical Clarity:</strong> 93% Light Transmission (Clear Grade) | 45% Opal LED Diffuser<br>
+              <strong>Applications:</strong> 3D LED channel letters, illuminated lightboxes, laser cutting & luxury displays.<br>
+              Cell cast from 100% pure virgin MMA. Zero yellowing, high weather resistance, polished flame edges.
             </div>
-            <div class="amz-stock">In Stock — All Gauges Available</div>
+            <div class="amz-stock">In Stock • All Gauges & Colors Ready</div>
             <div class="amz-product-price">
-              <span class="amz-price-symbol">B2B</span> Quote Only
+              <span class="amz-price-symbol">B2B</span> Direct Factory Wholesale Quote
             </div>
           </div>
           <div class="amz-product-action">
-            <div class="amz-prime">Wholesale Prime</div>
-            <button class="amz-btn open-quote-modal" data-product="ASTRYX A-Cast Clear Acrylic Sheet">Request Quote ⚡</button>
+            <div class="amz-prime">ASTRYX™ Brand</div>
+            <button class="amz-btn open-quote-modal" data-product="ASTRYX 100% Virgin Cast Acrylic Sheet">Request Quote</button>
           </div>
         </div>
 
-        <!-- Product 2: Coloured Sheets -->
+        <!-- Product 2: ASTARI Cast Acrylic -->
         <div class="amz-product-card">
           <div class="amz-product-img">
-            <img src="assets/acrylic_sheets.jpg" alt="ASTRYX Coloured Acrylic Sheets">
+            <span class="amz-badge-floating" style="color: #00f2fe;">ASTARI BRAND</span>
+            <img src="assets/acrylic_sheets.jpg" alt="ASTARI Cast Acrylic Sheet">
           </div>
           <div class="amz-product-details">
-            <div class="amz-product-title open-quote-modal" data-product="ASTRYX Coloured Acrylic Sheets">ASTRYX™ Coloured Cast Acrylic Sheets — Fluorescent, Opaque, Mirror & Tinted Grades</div>
+            <span class="amz-product-title open-quote-modal" data-product="ASTARI Premium Cast Acrylic Sheet">
+              ASTARI Cast Acrylic Sheets — International Premium Grade (2mm – 12mm)
+            </span>
             <div class="amz-product-rating">
-              <span class="amz-stars">★★★★★</span> 174 wholesale ratings
+              <span class="amz-stars">★★★★★</span> 164 wholesale ratings
             </div>
             <div class="amz-product-specs">
-              <strong>Available Colours:</strong> Fluorescent Red / Green / Yellow / Blue / Pink | Mirror (Silver / Gold) | Opaque White / Black<br>
-              <strong>Available Gauges:</strong> 2mm / 3mm / 4mm / 5mm / 6mm<br>
-              <strong>Standard Sheet Size:</strong> 8 x 4 ft (2440mm x 1220mm)<br>
-              <strong>Applications:</strong> Branded signboards, decorative display panels, retail interiors, and exhibition booths<br>
-              Same cell-cast MMA quality as clear grade. Deep, consistent colour throughout the entire thickness — not a surface coating.
+              <strong>Available Gauges:</strong> 2mm, 3mm, 4mm, 5mm, 6mm, 8mm, 10mm, 12mm<br>
+              <strong>Standard Sheet Sizes:</strong> 8 x 4 ft (2440mm x 1220mm)<br>
+              <strong>Applications:</strong> High-end architectural glazing, premium retail fixtures, and corporate signage.<br>
+              Renowned international cell-cast acrylic with strict thickness tolerance and smooth laser-cutting performance.
             </div>
-            <div class="amz-stock">In Stock — Subject to Colour Availability</div>
+            <div class="amz-stock">In Stock • Ready Central Stock</div>
             <div class="amz-product-price">
-              <span class="amz-price-symbol">B2B</span> Quote Only
+              <span class="amz-price-symbol">B2B</span> Direct Factory Wholesale Quote
             </div>
           </div>
           <div class="amz-product-action">
-            <div class="amz-prime">Wholesale Prime</div>
-            <button class="amz-btn open-quote-modal" data-product="ASTRYX Coloured Acrylic Sheets">Request Quote ⚡</button>
+            <div class="amz-prime">ASTARI Brand</div>
+            <button class="amz-btn open-quote-modal" data-product="ASTARI Premium Cast Acrylic Sheet">Request Quote</button>
+          </div>
+        </div>
+
+        <!-- Product 3: DG Cast Acrylic -->
+        <div class="amz-product-card">
+          <div class="amz-product-img">
+            <span class="amz-badge-floating" style="color: #ff0055;">DG ACRYLIC</span>
+            <img src="assets/acrylic_sheets.jpg" alt="DG Cast Acrylic Sheet">
+          </div>
+          <div class="amz-product-details">
+            <span class="amz-product-title open-quote-modal" data-product="DG Cast Acrylic Sheet">
+              DG Cast Acrylic Sheets — CNC Router & 3D Signage Grade (2mm – 10mm)
+            </span>
+            <div class="amz-product-rating">
+              <span class="amz-stars">★★★★★</span> 132 wholesale ratings
+            </div>
+            <div class="amz-product-specs">
+              <strong>Available Gauges:</strong> 2mm, 3mm, 4mm, 5mm, 6mm, 8mm, 10mm<br>
+              <strong>Standard Sheet Sizes:</strong> 8 x 4 ft (2440mm x 1220mm)<br>
+              <strong>Applications:</strong> 3D CNC carving, raised lettering, architectural models, and display boxes.<br>
+              Engineered specifically for high-speed CNC routing without chipping or edge melting.
+            </div>
+            <div class="amz-stock">In Stock • Fast Dispatch</div>
+            <div class="amz-product-price">
+              <span class="amz-price-symbol">B2B</span> Direct Factory Wholesale Quote
+            </div>
+          </div>
+          <div class="amz-product-action">
+            <div class="amz-prime">DG Brand</div>
+            <button class="amz-btn open-quote-modal" data-product="DG Cast Acrylic Sheet">Request Quote</button>
+          </div>
+        </div>
+
+        <!-- Product 4: BNZ Cast Acrylic -->
+        <div class="amz-product-card">
+          <div class="amz-product-img">
+            <span class="amz-badge-floating" style="color: #00ffaa;">BNZ ACRYLIC</span>
+            <img src="assets/acrylic_sheets.jpg" alt="BNZ Cast Acrylic & LGP Sheet">
+          </div>
+          <div class="amz-product-details">
+            <span class="amz-product-title open-quote-modal" data-product="BNZ Cast Acrylic & LGP Sheet">
+              BNZ Cast Acrylic & Light Guide Panels (LGP) — Signage & LED Grade (2mm – 8mm)
+            </span>
+            <div class="amz-product-rating">
+              <span class="amz-stars">★★★★★</span> 118 wholesale ratings
+            </div>
+            <div class="amz-product-specs">
+              <strong>Available Gauges:</strong> 2mm, 3mm, 4mm, 5mm, 6mm, 8mm<br>
+              <strong>Standard Sheet Sizes:</strong> 8 x 4 ft (2440mm x 1220mm)<br>
+              <strong>Applications:</strong> Slim LED light pockets, poster frames, edge-lit lightboxes & illuminated signage.<br>
+              Specialized light-scattering optical particles for high brightness edge-lit LED display panels.
+            </div>
+            <div class="amz-stock">In Stock • Ready Central Stock</div>
+            <div class="amz-product-price">
+              <span class="amz-price-symbol">B2B</span> Direct Factory Wholesale Quote
+            </div>
+          </div>
+          <div class="amz-product-action">
+            <div class="amz-prime">BNZ Brand</div>
+            <button class="amz-btn open-quote-modal" data-product="BNZ Cast Acrylic & LGP Sheet">Request Quote</button>
+          </div>
+        </div>
+
+        <!-- Product 5: ASIANN Cast Acrylic -->
+        <div class="amz-product-card">
+          <div class="amz-product-img">
+            <span class="amz-badge-floating" style="color: #ffb400;">ASIANN BRAND</span>
+            <img src="assets/acrylic_sheets.jpg" alt="ASIANN Cast Acrylic Sheet">
+          </div>
+          <div class="amz-product-details">
+            <span class="amz-product-title open-quote-modal" data-product="ASIANN Cast Acrylic Sheet">
+              ASIANN Commercial Cast Acrylic Sheets — Cost-Effective Signage Grade (1.8mm – 10mm)
+            </span>
+            <div class="amz-product-rating">
+              <span class="amz-stars">★★★★★</span> 142 wholesale ratings
+            </div>
+            <div class="amz-product-specs">
+              <strong>Available Gauges:</strong> 1.8mm, 2mm, 3mm, 4mm, 5mm, 6mm, 8mm, 10mm<br>
+              <strong>Standard Sheet Sizes:</strong> 8 x 4 ft (2440mm x 1220mm)<br>
+              <strong>Applications:</strong> Commercial retail signboards, protective barriers, event displays & POP stands.<br>
+              Highly economical commercial grade cell-cast acrylic with good optical transparency and easy thermoforming.
+            </div>
+            <div class="amz-stock">In Stock • Bulk Crate Stock</div>
+            <div class="amz-product-price">
+              <span class="amz-price-symbol">B2B</span> Direct Factory Wholesale Quote
+            </div>
+          </div>
+          <div class="amz-product-action">
+            <div class="amz-prime">ASIANN Brand</div>
+            <button class="amz-btn open-quote-modal" data-product="ASIANN Cast Acrylic Sheet">Request Quote</button>
           </div>
         </div>
 
@@ -297,38 +477,142 @@
     </div>
   </div>
 
+  <!-- TECHNICAL SPECIFICATIONS TABLE -->
+  <section class="specs-section" id="acrylic-specs" style="background-color: var(--bg-white); padding: 90px 0;">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">SPECIFICATIONS MATRIX</span>
+        <h2 class="section-title">Technical Specifications</h2>
+        <div class="section-underline"></div>
+        <p class="section-subtitle">Comparative specification matrix for wholesale sheet ordering and fabrication parameters.</p>
+      </div>
 
-
+      <div class="table-responsive" style="margin-top: 3rem; background: #fff; border-radius: var(--border-radius-md); box-shadow: var(--shadow-md); overflow: hidden; border: 1px solid var(--border-light);">
+        <table class="spec-table" style="width: 100%; border-collapse: collapse; text-align: left;">
+          <thead>
+            <tr style="background-color: var(--bg-dark); color: #fff;">
+              <th style="padding: 1.25rem;">Brand Name</th>
+              <th style="padding: 1.25rem;">Available Thickness (Gauges)</th>
+              <th style="padding: 1.25rem;">Sheet Size</th>
+              <th style="padding: 1.25rem;">Grade / Polymer Type</th>
+              <th style="padding: 1.25rem;">Key Feature</th>
+              <th style="padding: 1.25rem;">Wholesale Quote</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);"><strong>ASTRYX™</strong></td>
+              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);">1.5mm - 20mm</td>
+              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);">8 x 4 ft (2440x1220mm)</td>
+              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);">100% Virgin MMA Cell-Cast</td>
+              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);">93% Clarity, 10-Yr UV Warranty</td>
+              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);"><button class="btn btn-primary btn-sm open-quote-modal" data-product="ASTRYX Acrylic 3mm">Request Quote</button></td>
+            </tr>
+            <tr>
+              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);"><strong>ASTARI</strong></td>
+              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);">2mm - 12mm</td>
+              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);">8 x 4 ft (2440x1220mm)</td>
+              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);">International Premium Cast</td>
+              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);">Strict Thickness Tolerance</td>
+              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);"><button class="btn btn-primary btn-sm open-quote-modal" data-product="ASTARI Acrylic 3mm">Request Quote</button></td>
+            </tr>
+            <tr>
+              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);"><strong>DG ACRYLIC</strong></td>
+              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);">2mm - 10mm</td>
+              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);">8 x 4 ft (2440x1220mm)</td>
+              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);">CNC Routing Grade Cast</td>
+              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);">Zero Edge Melting on Router</td>
+              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);"><button class="btn btn-primary btn-sm open-quote-modal" data-product="DG Acrylic 3mm">Request Quote</button></td>
+            </tr>
+            <tr>
+              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);"><strong>BNZ ACRYLIC</strong></td>
+              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);">2mm - 8mm</td>
+              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);">8 x 4 ft (2440x1220mm)</td>
+              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);">LGP LED Display Grade</td>
+              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);">Uniform Edge-Lit Light Diffusion</td>
+              <td style="padding: 1rem; border-bottom: 1px solid var(--border-light);"><button class="btn btn-primary btn-sm open-quote-modal" data-product="BNZ Acrylic LGP">Request Quote</button></td>
+            </tr>
+            <tr>
+              <td style="padding: 1rem;"><strong>ASIANN</strong></td>
+              <td style="padding: 1rem;">1.8mm - 10mm</td>
+              <td style="padding: 1rem;">8 x 4 ft (2440x1220mm)</td>
+              <td style="padding: 1rem;">Commercial Signage Cast</td>
+              <td style="padding: 1rem;">Cost-Effective Bulk Commercial Use</td>
+              <td style="padding: 1rem;"><button class="btn btn-primary btn-sm open-quote-modal" data-product="ASIANN Acrylic 3mm">Request Quote</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
 
   <!-- SUB FOOTER -->
   <footer class="sub-footer">
     <div class="container sub-footer-container">
       <div class="footer-brand">
-        <span class="f-logo">ASTRYX™ ACRYLIC</span>
-        <p>© 2026 Southern Impex. All Rights Reserved. Flagship Cast Acrylic Brand.</p>
+        <span class="f-logo">SOUTHERN IMPEX</span>
+        <p>© 2026 Southern Impex. All Rights Reserved. Master Wholesale Supplier for Cast Acrylic Sheets.</p>
       </div>
       <div class="sub-footer-links">
         <a href="index.html#home">Home</a>
-        <a href="index.html#about">About Us</a>
-        <a href="index.html#products">Products</a>
+        <a href="flex.html">Flex Media</a>
+        <a href="cloth-canvas.html">Cloth & Canvas</a>
+        <a href="pe-sheets.html">P.E. Sheets</a>
+        <a href="vinyl.html">Vinyl</a>
+        <a href="acrylic.html">Acrylic</a>
+        <a href="acp.html">ACP</a>
         <a href="index.html#contact">Contact</a>
       </div>
     </div>
   </footer>
 
-  <!-- MODAL DIALOG -->
+  <!-- B2B TRADE INQUIRY MODAL DIALOG -->
   <div class="modal-backdrop" id="quote-modal">
     <div class="modal-content glassmorphic-modal">
       <button class="modal-close" aria-label="Close modal">&times;</button>
+      
       <div class="modal-header">
-        <span class="modal-tag">ASTRYX Acrylic Quote</span>
-        <h3 class="modal-title">Request Wholesale Rates</h3>
+        <span class="modal-tag">B2B Trade Inquiry</span>
+        <h3 class="modal-title">Request Cast Acrylic Quote</h3>
+        <p class="modal-sub">Receive custom bulk pricing per sheet within 30 minutes.</p>
       </div>
+
       <form id="quote-modal-form" class="modal-form">
-        <div class="form-group"><label>Full Name *</label><input type="text" required></div>
-        <div class="form-group"><label>Phone Number *</label><input type="tel" required></div>
-        <div class="form-group"><label>Selected Gauge *</label><select id="modal-product-select"><option value="ASTRYX 3mm">3mm ASTRYX</option><option value="ASTRYX 4mm">4mm ASTRYX</option></select></div>
-        <button type="submit" class="btn btn-primary w-100">Send Quote Request ⚡</button>
+        <div class="form-group">
+          <label for="modal-name">Your Full Name *</label>
+          <input type="text" id="modal-name" placeholder="Ramesh Verma" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="modal-phone">Phone / WhatsApp *</label>
+            <input type="tel" id="modal-phone" placeholder="+91 98765 43210" required>
+          </div>
+          <div class="form-group">
+            <label for="modal-company">Business / Company Name</label>
+            <input type="text" id="modal-company" placeholder="Apex Graphics">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="modal-product-select">Selected Brand & Gauge *</label>
+          <select id="modal-product-select" required>
+            <option value="ASTRYX Acrylic Sheet">ASTRYX™ 100% Virgin Cast Acrylic (1.5mm - 20mm)</option>
+            <option value="ASTARI Acrylic Sheet">ASTARI Premium Cast Acrylic (2mm - 12mm)</option>
+            <option value="DG Acrylic Sheet">DG Cast Acrylic Sheet (2mm - 10mm)</option>
+            <option value="BNZ Acrylic Sheet">BNZ Cast Acrylic & LGP Sheet (2mm - 8mm)</option>
+            <option value="ASIANN Acrylic Sheet">ASIANN Commercial Cast Acrylic (1.8mm - 10mm)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="modal-quantity">Estimated Quantity / Number of Sheets</label>
+          <input type="text" id="modal-quantity" placeholder="e.g. 20 Sheets 3mm Clear 8x4ft">
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">
+          Submit Rate Request
+        </button>
       </form>
     </div>
   </div>
@@ -337,4 +621,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-

@@ -293,4 +293,134 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     animateCounters();
   }
+
+  // --- 9. UNIFIED BRANCH HUB & MAP INTERACTIVITY ---
+  const hubTabs = document.querySelectorAll('.hub-tab-btn');
+  const busLocationItems = document.querySelectorAll('.bus-location-item');
+  const mapIframe = document.getElementById('branch-google-map');
+  const hubCard = document.querySelector('.branch-hub-card');
+  
+  const activeBadge = document.getElementById('active-branch-badge');
+  const activeTitle = document.getElementById('active-branch-title');
+  const activeSubtitle = document.getElementById('active-branch-subtitle');
+  const activeAddress = document.getElementById('active-branch-address');
+  const activePhone = document.getElementById('active-branch-phone');
+  const activeDirectLink = document.getElementById('active-map-direct-link');
+
+  const branchDataMap = {
+    'kochi-ho': {
+      title: 'Southern Impex Kochi (Head Office)',
+      subtitle: 'Central Master Supply Depot & Executive Head Office',
+      badge: 'HEAD OFFICE',
+      badgeClass: 'hq',
+      address: 'Metro Pillar 420, Kalamassery, Kochi, Kerala 682033',
+      phone: '+91 98470 12345 / 0484 2555777',
+      embedUrl: 'https://maps.google.com/maps?q=Southern+Impex,+Kochi,+Kerala&t=&z=15&ie=UTF8&iwloc=&output=embed',
+      directUrl: 'https://www.google.com/maps/search/?api=1&query=Southern+Impex+Kochi+Kerala'
+    },
+    'kochi-tech': {
+      title: 'Southern Sign Technology (Kochi)',
+      subtitle: 'Signage Hardware & Technical Support Center',
+      badge: 'SIGN TECH',
+      badgeClass: 'tech',
+      address: 'MG Road, Ernakulam, Kochi, Kerala 682016',
+      phone: '+91 98470 23456 / 0484 2366888',
+      embedUrl: 'https://maps.google.com/maps?q=Southern+Sign+Technology,+Kochi,+Kerala&t=&z=15&ie=UTF8&iwloc=&output=embed',
+      directUrl: 'https://www.google.com/maps/search/?api=1&query=Southern+Sign+Technology+Kochi+Kerala'
+    },
+    'calicut': {
+      title: 'Southern Sales Corporation (Calicut)',
+      subtitle: 'Malabar Regional Master Supply Depot',
+      badge: 'MALABAR HUB',
+      badgeClass: 'calicut',
+      address: 'Mavoor Road Trade Hub, Calicut, Kerala 673004',
+      phone: '+91 98470 34567 / 0495 2722999',
+      embedUrl: 'https://maps.google.com/maps?q=Southern+Sales+Corporation,+Calicut,+Kerala&t=&z=15&ie=UTF8&iwloc=&output=embed',
+      directUrl: 'https://www.google.com/maps/search/?api=1&query=Southern+Sales+Corporation+Calicut+Kerala'
+    },
+    'trivandrum': {
+      title: 'Southern Impex Trivandrum',
+      subtitle: 'South Kerala Regional Wholesale Depot',
+      badge: 'SOUTH KERALA HUB',
+      badgeClass: 'tvm',
+      address: 'TC Road Industrial Zone, Trivandrum, Kerala 695001',
+      phone: '+91 98470 45678 / 0471 2477111',
+      embedUrl: 'https://maps.google.com/maps?q=Southern+Impex,+Trivandrum,+Kerala&t=&z=15&ie=UTF8&iwloc=&output=embed',
+      directUrl: 'https://www.google.com/maps/search/?api=1&query=Southern+Impex+Trivandrum+Kerala'
+    }
+  };
+
+  function updateBranchView(targetBranchId) {
+    const data = branchDataMap[targetBranchId];
+    if (!data) return;
+
+    hubTabs.forEach(tab => {
+      if (tab.getAttribute('data-branch') === targetBranchId) {
+        tab.classList.add('active');
+      } else {
+        tab.classList.remove('active');
+      }
+    });
+
+    busLocationItems.forEach(item => {
+      if (item.getAttribute('data-branch') === targetBranchId) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    });
+
+    if (activeBadge) {
+      activeBadge.textContent = data.badge;
+      activeBadge.className = `branch-badge ${data.badgeClass}`;
+    }
+    if (activeTitle) activeTitle.textContent = data.title;
+    if (activeSubtitle) activeSubtitle.textContent = data.subtitle;
+    if (activeAddress) activeAddress.textContent = data.address;
+    if (activePhone) activePhone.textContent = data.phone;
+    if (activeDirectLink) activeDirectLink.href = data.directUrl;
+
+    if (mapIframe) {
+      mapIframe.style.opacity = '0.2';
+      setTimeout(() => {
+        mapIframe.src = data.embedUrl;
+        mapIframe.style.opacity = '1';
+      }, 120);
+    }
+  }
+
+  hubTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const branchId = tab.getAttribute('data-branch');
+      updateBranchView(branchId);
+    });
+  });
+
+  busLocationItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const branchId = item.getAttribute('data-branch');
+      updateBranchView(branchId);
+    });
+  });
+
+  // Smooth IntersectionObserver for Hub Card Entrance
+  if ('IntersectionObserver' in window && hubCard) {
+    const hubObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    hubObserver.observe(hubCard);
+  } else if (hubCard) {
+    hubCard.classList.add('is-visible');
+  }
 });
+
+
+
+
+

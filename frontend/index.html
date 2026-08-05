@@ -21,6 +21,7 @@
       <nav class="nav-menu">
         <div class="nav-item active"><a href="#home" class="nav-link">Home</a></div>
         <div class="nav-item"><a href="#about" class="nav-link">About Us</a></div>
+        <div class="nav-item"><a href="#branches" class="nav-link">Branches</a></div>
         <div class="nav-item">
           <a href="#products" class="nav-link">
             Products 
@@ -30,6 +31,8 @@
           </a>
           <div class="dropdown-menu">
             <a href="flex.html" class="dropdown-link">Flex Printing Media</a>
+            <a href="cloth-canvas.html" class="dropdown-link">Cloth & Canvas Media</a>
+            <a href="pe-sheets.html" class="dropdown-link">Polyethylene Flexible Sheets</a>
             <a href="vinyl.html" class="dropdown-link">Self Adhesive Vinyl</a>
             <a href="acrylic.html" class="dropdown-link">ASTRYX™ Cast Acrylic</a>
             <a href="acp.html" class="dropdown-link">ACP Composite Panels</a>
@@ -248,6 +251,137 @@
     </div>
   </section>
 
+  <!-- UNIFIED BRANCH NETWORK HUB & INTERACTIVE GOOGLE MAPS -->
+  <section class="branch-hub-section" id="branches">
+    <div class="container">
+      
+      <!-- Unified Luxury Hub Card -->
+      <div class="branch-hub-card">
+        
+        <!-- Hub Top Header Bar -->
+        <div class="hub-header-bar">
+          <div class="hub-title-box">
+            <span class="hub-tag"><span class="hub-pulse-dot"></span> PAN KERALA NETWORK</span>
+            <h2 class="hub-title">Branch Locations & Live Google Maps</h2>
+          </div>
+
+          <!-- Integrated Serial Bus Ticker -->
+          <div class="hub-serial-bus">
+            <span class="bus-badge-text">SERIAL BUS</span>
+            <div class="bus-ticker-window">
+              <div class="bus-ticker-track">
+                <span class="bus-location-item active" data-branch="kochi-ho">📍 Southern Impex Kochi (Head Office)</span>
+                <span class="bus-sep">•</span>
+                <span class="bus-location-item" data-branch="kochi-tech">📍 Southern Sign Technology (Kochi)</span>
+                <span class="bus-sep">•</span>
+                <span class="bus-location-item" data-branch="calicut">📍 Southern Sales Corporation (Calicut)</span>
+                <span class="bus-sep">•</span>
+                <span class="bus-location-item" data-branch="trivandrum">📍 Southern Impex Trivandrum</span>
+                <span class="bus-sep">•</span>
+                <!-- Loop duplicates -->
+                <span class="bus-location-item" data-branch="kochi-ho">📍 Southern Impex Kochi (Head Office)</span>
+                <span class="bus-sep">•</span>
+                <span class="bus-location-item" data-branch="kochi-tech">📍 Southern Sign Technology (Kochi)</span>
+                <span class="bus-sep">•</span>
+                <span class="bus-location-item" data-branch="calicut">📍 Southern Sales Corporation (Calicut)</span>
+                <span class="bus-sep">•</span>
+                <span class="bus-location-item" data-branch="trivandrum">📍 Southern Impex Trivandrum</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Branch Selector Pills -->
+        <div class="hub-tabs-row">
+          <button class="hub-tab-btn active" data-branch="kochi-ho">
+            <span class="tab-icon">🏢</span>
+            <div class="tab-details">
+              <strong>Southern Impex Kochi</strong>
+              <small>Head Office & Central Depot</small>
+            </div>
+          </button>
+
+          <button class="hub-tab-btn" data-branch="kochi-tech">
+            <span class="tab-icon">⚙️</span>
+            <div class="tab-details">
+              <strong>Southern Sign Tech</strong>
+              <small>Kochi Hardware Division</small>
+            </div>
+          </button>
+
+          <button class="hub-tab-btn" data-branch="calicut">
+            <span class="tab-icon">🏬</span>
+            <div class="tab-details">
+              <strong>Southern Sales Corp</strong>
+              <small>Calicut Malabar Hub</small>
+            </div>
+          </button>
+
+          <button class="hub-tab-btn" data-branch="trivandrum">
+            <span class="tab-icon">📍</span>
+            <div class="tab-details">
+              <strong>Southern Impex TVM</strong>
+              <small>Trivandrum Regional Depot</small>
+            </div>
+          </button>
+        </div>
+
+        <!-- Main Split Display (Info Left + Map Right) -->
+        <div class="hub-main-split">
+          
+          <!-- Left: Branch Info -->
+          <div class="hub-info-panel">
+            <div class="panel-top-row">
+              <span class="branch-badge hq" id="active-branch-badge">HEAD OFFICE</span>
+              <span class="branch-status-pill"><span class="status-dot"></span> Open Now</span>
+            </div>
+
+            <h3 class="branch-display-title" id="active-branch-title">Southern Impex Kochi (Head Office)</h3>
+            <p class="branch-display-sub" id="active-branch-subtitle">Central Master Supply Depot & Executive Head Office</p>
+
+            <div class="branch-contact-card">
+              <div class="contact-line">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary-red)" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span id="active-branch-address">Metro Pillar 420, Kalamassery, Kochi, Kerala 682033</span>
+              </div>
+              <div class="contact-line">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary-red)" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span id="active-branch-phone">+91 98470 12345 / 0484 2555777</span>
+              </div>
+            </div>
+
+            <a href="https://www.google.com/maps/search/?api=1&query=Southern+Impex+Kochi+Kerala" 
+               target="_blank" 
+               rel="noopener" 
+               id="active-map-direct-link" 
+               class="btn-maps-action">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Open in Google Maps ↗
+            </a>
+          </div>
+
+          <!-- Right: Embedded Google Map -->
+          <div class="hub-map-panel">
+            <iframe 
+              id="branch-google-map"
+              src="https://maps.google.com/maps?q=Southern+Impex,+Kochi,+Kerala&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Branch Google Map Location">
+            </iframe>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
   <!-- BRANDS & AUTHORIZED DISTRIBUTIONS -->
   <section class="brands-section" id="brands">
     <div class="container">
@@ -313,6 +447,24 @@
             <span class="brand-desc">Cast Acrylic Sheets</span>
           </div>
         </div>
+        <div class="brand-card">
+          <div class="brand-card-img">
+            <img src="assets/kpl-logo.jpg" alt="KPL">
+          </div>
+          <div class="brand-card-body">
+            <span class="brand-name">KPL</span>
+            <span class="brand-desc">Polyethylene Flexible Sheets</span>
+          </div>
+        </div>
+        <div class="brand-card">
+          <div class="brand-card-img">
+            <img src="assets/pe_sheets.jpg" alt="P.E. MEDIA">
+          </div>
+          <div class="brand-card-body">
+            <span class="brand-name">P.E. MEDIA</span>
+            <span class="brand-desc">Polyethylene Flexible Sheets</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -372,17 +524,17 @@
           <div class="acc-overlay"></div>
           <span class="acc-index">03</span>
           <span class="acc-flagship-badge">FLAGSHIP</span>
-          <div class="acc-collapsed-title">ASTRYX™ CAST ACRYLIC</div>
+          <div class="acc-collapsed-title">CAST ACRYLIC SHEETS</div>
 
           <div class="acc-content">
-            <span class="acc-category-tag" style="color: var(--primary-orange);">Flagship Brand</span>
-            <h3 class="acc-title">ASTRYX™ ACRYLIC</h3>
+            <span class="acc-category-tag" style="color: var(--primary-orange);">Cell-Cast Acrylic</span>
+            <h3 class="acc-title">CAST ACRYLIC</h3>
             <p class="acc-desc">100% Virgin MMA optical cast acrylic sheets (1.5mm - 20mm). 93% clarity, Opal White LED Diffuser & Gold Mirror.</p>
             <div class="acc-brands-mini">
-              <span>ASTRYX™ CAST ACRYLIC</span>
+              <span>ASTRYX™</span> • <span>ASTARI</span> • <span>DG</span> • <span>BNZ</span> • <span>ASIANN</span>
             </div>
             <span class="acc-action-btn">
-              Explore ASTRYX™ Brand <span class="arrow-shift">→</span>
+              Explore Acrylic Brands <span class="arrow-shift">→</span>
             </span>
           </div>
         </a>
@@ -440,6 +592,44 @@
             </div>
             <span class="acc-action-btn">
               Explore PVC & Sunboard <span class="arrow-shift">→</span>
+            </span>
+          </div>
+        </a>
+
+        <!-- Panel 7: CLOTH / CANVAS -->
+        <a href="cloth-canvas.html" class="acc-panel" style="--bg-img: url('assets/cloth_canvas.jpg');">
+          <div class="acc-overlay"></div>
+          <span class="acc-index">07</span>
+          <div class="acc-collapsed-title">CLOTH / CANVAS MEDIA</div>
+
+          <div class="acc-content">
+            <span class="acc-category-tag">Fabric & Canvas Media</span>
+            <h3 class="acc-title">CLOTH / CANVAS</h3>
+            <p class="acc-desc">Frontlit, Backlit & Blockout cloth & canvas media rolls for LED lightboxes, soft signage, exhibitions & art prints.</p>
+            <div class="acc-brands-mini">
+              <span>FRONTLIT CLOTH</span> • <span>BACKLIT FABRIC</span> • <span>BLOCKOUT CANVAS</span>
+            </div>
+            <span class="acc-action-btn">
+              Explore Cloth & Canvas <span class="arrow-shift">→</span>
+            </span>
+          </div>
+        </a>
+
+        <!-- Panel 8: POLYETHYLENE FLEXIBLE SHEETS -->
+        <a href="pe-sheets.html" class="acc-panel" style="--bg-img: url('assets/pe_sheets.jpg');">
+          <div class="acc-overlay"></div>
+          <span class="acc-index">08</span>
+          <div class="acc-collapsed-title">P.E. FLEXIBLE SHEETS</div>
+
+          <div class="acc-content">
+            <span class="acc-category-tag">Eco Flexible Media</span>
+            <h3 class="acc-title">P.E. MEDIA SHEETS</h3>
+            <p class="acc-desc">100% recyclable, eco-friendly Polyethylene flexible sheets & translucent backlit films by P.E. MEDIA for high-vibrancy printing.</p>
+            <div class="acc-brands-mini">
+              <span>P.E. MEDIA</span> • <span>ECO PE SHEETS</span> • <span>BACKLIT PE</span>
+            </div>
+            <span class="acc-action-btn">
+              Explore P.E. Media Sheets <span class="arrow-shift">→</span>
             </span>
           </div>
         </a>
@@ -719,6 +909,8 @@
           <select id="modal-product-select" required>
             <option value="">-- Choose Material Category --</option>
             <option value="Flex Banners">Flex Banners (Frontlit / Backlit / Blackout)</option>
+            <option value="Cloth & Canvas Media">Cloth & Canvas Media (Frontlit / Backlit / Blockout)</option>
+            <option value="Polyethylene Flexible Sheets">Polyethylene Flexible Sheets (P.E. MEDIA)</option>
             <option value="Self Adhesive Vinyl">Self Adhesive Vinyl (Glossy / Matte / Clear)</option>
             <option value="Cast Acrylic Sheets">Cast Acrylic Sheets (Clear / Opaque / Mirror)</option>
             <option value="ACP Composite Sheets">ACP Sheets (Architectural PVDF / Interior)</option>

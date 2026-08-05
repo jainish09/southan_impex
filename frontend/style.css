@@ -1950,3 +1950,365 @@ button {
   justify-content: center !important;
 }
 
+/* ==========================================================================
+   UNIFIED LUXURY BRANCH NETWORK HUB WIDGET
+   ========================================================================== */
+.branch-hub-section {
+  background-color: var(--bg-white);
+  padding: 55px 0;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* SINGLE UNIFIED LUXURY CARD */
+.branch-hub-card {
+  background: var(--bg-darker);
+  border-radius: var(--border-radius-xl);
+  border: 1px solid var(--border-dark);
+  padding: 1.75rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.branch-hub-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* TOP HEADER BAR */
+.hub-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-dark);
+  flex-wrap: wrap;
+}
+
+.hub-tag {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--primary-amber);
+  background: rgba(255, 159, 28, 0.12);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--border-radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.2rem;
+}
+
+.hub-pulse-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--primary-red);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--primary-red);
+  animation: pulse-dot 1.5s infinite;
+}
+
+.hub-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1.2;
+}
+
+/* INTEGRATED SERIAL BUS TICKER */
+.hub-serial-bus {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--border-radius-full);
+  padding: 0.35rem 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 480px;
+  overflow: hidden;
+}
+
+.bus-badge-text {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--primary-orange);
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+  background: rgba(247, 127, 0, 0.15);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+.bus-ticker-window {
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.bus-ticker-track {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: max-content;
+  animation: marquee-scroll 24s linear infinite;
+  white-space: nowrap;
+}
+
+.bus-ticker-track:hover {
+  animation-play-state: paused;
+}
+
+.bus-location-item {
+  font-size: 0.76rem;
+  color: var(--text-muted-dark);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.bus-location-item:hover, .bus-location-item.active {
+  color: #fff;
+  font-weight: 600;
+}
+
+.bus-sep {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.7rem;
+}
+
+/* 4 BRANCH SELECTOR PILLS */
+.hub-tabs-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.hub-tab-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--border-radius-md);
+  padding: 0.75rem 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  cursor: pointer;
+  text-align: left;
+  transition: var(--transition-fast);
+}
+
+.hub-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(217, 4, 22, 0.4);
+  transform: translateY(-1px);
+}
+
+.hub-tab-btn.active {
+  background: var(--gradient-red-orange);
+  border-color: transparent;
+  box-shadow: 0 6px 20px rgba(217, 4, 22, 0.4);
+}
+
+.tab-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.tab-details strong {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.tab-details small {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-muted-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px;
+}
+
+.hub-tab-btn.active .tab-details small {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* MAIN SPLIT DISPLAY (INFO LEFT + MAP RIGHT) */
+.hub-main-split {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 1.25rem;
+  background: var(--bg-dark-card);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  min-height: 310px;
+}
+
+/* LEFT: INFO PANEL */
+.hub-info-panel {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid var(--border-dark);
+}
+
+.panel-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.branch-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
+.branch-badge.hq { background: rgba(217, 4, 22, 0.2); color: #ff4d4d; }
+.branch-badge.tech { background: rgba(247, 127, 0, 0.2); color: #ff9f1c; }
+.branch-badge.calicut { background: rgba(255, 159, 28, 0.2); color: #ffbf69; }
+.branch-badge.tvm { background: rgba(225, 29, 72, 0.2); color: #fb7185; }
+
+.branch-status-pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #4ade80;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  background: #4ade80;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #4ade80;
+}
+
+.branch-display-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 0.25rem;
+}
+
+.branch-display-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted-dark);
+  margin-bottom: 1rem;
+}
+
+.branch-contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  margin-bottom: 1.25rem;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.75rem;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contact-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.contact-line svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.btn-maps-action {
+  background: var(--gradient-red-orange);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--border-radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(217, 4, 22, 0.35);
+  transition: var(--transition-fast);
+}
+
+.btn-maps-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(217, 4, 22, 0.55);
+  color: #fff;
+}
+
+/* RIGHT: MAP PANEL */
+.hub-map-panel {
+  width: 100%;
+  height: 100%;
+  min-height: 290px;
+  position: relative;
+  background: #111;
+}
+
+.hub-map-panel iframe {
+  transition: opacity 0.25s ease;
+}
+
+/* RESPONSIVE DESIGN FOR HUB CARD */
+@media (max-width: 992px) {
+  .hub-tabs-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hub-main-split {
+    grid-template-columns: 1fr;
+  }
+  .hub-info-panel {
+    border-right: none;
+    border-bottom: 1px solid var(--border-dark);
+  }
+  .hub-map-panel {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hub-tabs-row {
+    grid-template-columns: 1fr;
+  }
+  .hub-header-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .hub-serial-bus {
+    max-width: 100%;
+  }
+  .branch-hub-card {
+    padding: 1.25rem;
+  }
+}
+
+
+
+
+
