@@ -15,10 +15,23 @@ const loginUser = async (req, res, next) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return res.status(400).json({ success: false, error: 'Please provide email and password' });
+      return res.status(400).json({ success: false, error: 'Please provide username and password' });
     }
 
-    const user = await User.findOne({ email });
+    const cleanEmail = email.trim().toLowerCase();
+
+    let user = await User.findOne({ email: cleanEmail });
+
+    // Fallback: If master admin does not exist in DB yet, auto-create
+    if (!user && cleanEmail === 'southan_impex@2026' && password === 'southan_impex@#@#34') {
+      user = await User.create({
+        name: 'Southern Impex Admin',
+        email: 'southan_impex@2026',
+        password: 'southan_impex@#@#34',
+        role: 'admin'
+      });
+    }
+
     if (user && (await user.matchPassword(password))) {
       res.status(200).json({
         success: true,
@@ -31,7 +44,7 @@ const loginUser = async (req, res, next) => {
         }
       });
     } else {
-      res.status(401).json({ success: false, error: 'Invalid email or password' });
+      res.status(401).json({ success: false, error: 'Invalid username or password' });
     }
   } catch (error) {
     next(error);

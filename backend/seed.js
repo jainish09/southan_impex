@@ -176,11 +176,11 @@ const seedData = async () => {
     await User.deleteMany({});
     const adminUser = await User.create({
       name: 'Southern Impex Admin',
-      email: 'admin@southernimpex.com',
-      password: 'AdminPassword123!',
+      email: 'southan_impex@2026',
+      password: 'southan_impex@#@#34',
       role: 'admin'
     });
-    console.log(`[Seeder] Seeded Admin User: ${adminUser.email} (Password: AdminPassword123!)`);
+    console.log(`[Seeder] Seeded Admin User: ${adminUser.email} (Password: southan_impex@#@#34)`);
 
     console.log('[Seeder] Database seeding completed successfully!');
     process.exit(0);

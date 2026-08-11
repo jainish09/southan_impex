@@ -361,7 +361,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // --- 7. FORM SUBMISSIONS HANDLING (LIVE BACKEND INTEGRATION) ---
-  const API_BASE_URL = 'http://localhost:5000/api';
+  const API_BASE_URL = 'https://southan-impex-2k3v.onrender.com/api';
 
   const sendInquiryToBackend = async (payload) => {
     try {

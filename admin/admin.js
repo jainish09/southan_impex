@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = 'https://southan-impex-2k3v.onrender.com/api';
 let authToken = localStorage.getItem('southern_impex_admin_token') || '';
 let currentInquiries = [];
 let activeStatusFilter = 'all';
@@ -74,7 +74,7 @@ if (loginForm) {
         alert(data.error || 'Authentication Failed');
       }
     } catch (err) {
-      alert('Could not connect to server on http://localhost:5000');
+      alert('Could not connect to backend server on https://southan-impex-2k3v.onrender.com');
     }
   });
 }
@@ -109,7 +109,7 @@ async function fetchInquiries() {
       tbody.innerHTML = `
         <tr>
           <td colspan="7" class="empty-state">
-            Could not connect to backend server. Make sure backend is running on <code>http://localhost:5000</code>.
+            Could not connect to backend server. Make sure backend is running on <code>https://southan-impex-2k3v.onrender.com</code>.
           </td>
         </tr>
       `;
