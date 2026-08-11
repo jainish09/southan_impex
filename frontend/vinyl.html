@@ -174,9 +174,9 @@
         <h3 class="modal-title">Request B2B Vinyl Rate Quote</h3>
       </div>
       <form id="quote-modal-form" class="modal-form">
-        <div class="form-group"><label>Full Name *</label><input type="text" required></div>
-        <div class="form-group"><label>Phone Number *</label><input type="tel" required></div>
-        <div class="form-group"><label>Selected Vinyl *</label><select id="modal-product-select"><option value="3M IJ180">3M IJ180</option><option value="Avery High Tack">Avery High Tack</option></select></div>
+        <div class="form-group"><label for="modal-name">Full Name *</label><input type="text" id="modal-name" name="name" placeholder="Your Name" required></div>
+        <div class="form-group"><label for="modal-phone">Phone Number *</label><input type="tel" id="modal-phone" name="phone" placeholder="+91 Mobile Number" required></div>
+        <div class="form-group"><label for="modal-product-select">Selected Vinyl *</label><select id="modal-product-select" name="product"><option value="3M IJ180">3M IJ180</option><option value="Avery High Tack">Avery High Tack</option></select></div>
         <button type="submit" class="btn btn-primary w-100">Send Instant Quote Request ⚡</button>
       </form>
     </div>

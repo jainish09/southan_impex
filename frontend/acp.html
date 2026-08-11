@@ -80,23 +80,23 @@
       </div>
 
       <div class="brands-grid" style="margin-top: 3.5rem;">
-        <div class="brand-card" style="background-color: #F8FAFC; border: 1px solid var(--border-light); padding: 2.25rem;">
+        <a href="acp.html" class="brand-card" style="text-decoration: none; background-color: #F8FAFC; border: 1px solid var(--border-light); padding: 2.25rem;">
           <span class="brand-name" style="color: var(--primary-red); font-size: 1.5rem;">ALUCOBOND</span>
           <span class="brand-desc" style="color: #334155; font-weight: 600; font-size: 0.85rem; margin-top: 0.5rem;">Architectural PVDF Panels</span>
           <p style="font-size: 0.8rem; color: var(--text-muted-light); margin-top: 0.75rem;">Premium 4mm panels with 0.5mm aluminum skin for exterior building facade cladding.</p>
-        </div>
+        </a>
 
-        <div class="brand-card" style="background-color: #F8FAFC; border: 1px solid var(--border-light); padding: 2.25rem;">
+        <a href="acp.html" class="brand-card" style="text-decoration: none; background-color: #F8FAFC; border: 1px solid var(--border-light); padding: 2.25rem;">
           <span class="brand-name" style="color: var(--primary-orange); font-size: 1.5rem;">EUROBOND</span>
           <span class="brand-desc" style="color: #334155; font-weight: 600; font-size: 0.85rem; margin-top: 0.5rem;">Signage & Interior ACP</span>
           <p style="font-size: 0.8rem; color: var(--text-muted-light); margin-top: 0.75rem;">Versatile 3mm panels for commercial storefront signboards & interior wall panels.</p>
-        </div>
+        </a>
 
-        <div class="brand-card" style="background-color: #F8FAFC; border: 1px solid var(--border-light); padding: 2.25rem;">
+        <a href="acp.html" class="brand-card" style="text-decoration: none; background-color: #F8FAFC; border: 1px solid var(--border-light); padding: 2.25rem;">
           <span class="brand-name" style="color: var(--text-dark); font-size: 1.5rem;">JINDAL ALUMINUM</span>
           <span class="brand-desc" style="color: #334155; font-weight: 600; font-size: 0.85rem; margin-top: 0.5rem;">High-Tensile Alloy Core</span>
           <p style="font-size: 0.8rem; color: var(--text-muted-light); margin-top: 0.75rem;">Superior flatness & peel strength engineered for tropical climate endurance.</p>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -171,9 +171,9 @@
         <h3 class="modal-title">Request B2B ACP Panel Quote</h3>
       </div>
       <form id="quote-modal-form" class="modal-form">
-        <div class="form-group"><label>Full Name *</label><input type="text" required></div>
-        <div class="form-group"><label>Phone Number *</label><input type="tel" required></div>
-        <div class="form-group"><label>Selected Grade *</label><select id="modal-product-select"><option value="PVDF Exterior ACP">PVDF Exterior 4mm</option><option value="Interior ACP">Polyester Interior 3mm</option></select></div>
+        <div class="form-group"><label for="modal-name">Full Name *</label><input type="text" id="modal-name" name="name" placeholder="Your Name" required></div>
+        <div class="form-group"><label for="modal-phone">Phone Number *</label><input type="tel" id="modal-phone" name="phone" placeholder="+91 Mobile Number" required></div>
+        <div class="form-group"><label for="modal-product-select">Selected Grade *</label><select id="modal-product-select" name="product"><option value="PVDF Exterior ACP">PVDF Exterior 4mm</option><option value="Interior ACP">Polyester Interior 3mm</option></select></div>
         <button type="submit" class="btn btn-primary w-100">Send Quote Request ⚡</button>
       </form>
     </div>

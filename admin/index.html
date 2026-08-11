@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Southern Impex — Master Admin Portal</title>
+  <meta name="description" content="Official Executive Admin Dashboard for Southern Impex Wholesale Master Supply House. Categorized quote requests, sidebar navigation, and live notifications.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Admin CSS -->
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <!-- AUTH / LOGIN OVERLAY (FLOATS OVER DASHBOARD UNTIL AUTHENTICATED) -->
+  <div id="login-overlay">
+    <div class="login-card">
+      <div class="login-brand">
+        <h1 class="login-brand-title">SOUTHERN <span>IMPEX</span></h1>
+        <p class="login-subtitle">Executive Admin Portal Authentication</p>
+      </div>
+
+      <form id="login-form">
+        <div class="form-group">
+          <label class="form-label" for="login-email">Admin Email</label>
+          <input type="email" id="login-email" class="form-control" placeholder="admin@southernimpex.com" required value="admin@southernimpex.com">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="login-password">Password</label>
+          <input type="password" id="login-password" class="form-control" placeholder="••••••••" required value="admin123">
+        </div>
+
+        <button type="submit" class="btn-primary">Authenticate & Access Dashboard</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MAIN ADMIN APP LAYOUT -->
+  <div class="app-layout">
+    
+    <!-- LEFT SIDEBAR NAVIGATION -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo-icon">S</div>
+        <div class="sidebar-logo-text">SOUTHERN <span>IMPEX</span></div>
+      </div>
+
+      <div class="sidebar-menu">
+        <div class="menu-label">OVERVIEW</div>
+        <a class="menu-item active" data-cat="all" onclick="selectSidebarCategory('all')">
+          <div><span class="menu-icon">📊</span> All Trade Inquiries</div>
+          <span class="menu-badge" id="badge-all">0</span>
+        </a>
+
+        <div class="menu-label">MATERIAL LINES (8 CATEGORIES)</div>
+        <a class="menu-item" data-cat="acrylic" onclick="selectSidebarCategory('acrylic')">
+          <div><span class="menu-icon">🧊</span> Acrylic Sheets</div>
+          <span class="menu-badge" id="badge-acrylic">0</span>
+        </a>
+        <a class="menu-item" data-cat="flex" onclick="selectSidebarCategory('flex')">
+          <div><span class="menu-icon">🚩</span> Flex Media</div>
+          <span class="menu-badge" id="badge-flex">0</span>
+        </a>
+        <a class="menu-item" data-cat="vinyl" onclick="selectSidebarCategory('vinyl')">
+          <div><span class="menu-icon">🎨</span> Vinyl Media</div>
+          <span class="menu-badge" id="badge-vinyl">0</span>
+        </a>
+        <a class="menu-item" data-cat="acp" onclick="selectSidebarCategory('acp')">
+          <div><span class="menu-icon">🏢</span> ACP Facade</div>
+          <span class="menu-badge" id="badge-acp">0</span>
+        </a>
+        <a class="menu-item" data-cat="led" onclick="selectSidebarCategory('led')">
+          <div><span class="menu-icon">💡</span> Samsung LED</div>
+          <span class="menu-badge" id="badge-led">0</span>
+        </a>
+        <a class="menu-item" data-cat="pvc" onclick="selectSidebarCategory('pvc')">
+          <div><span class="menu-icon">🪵</span> PVC Sunboard</div>
+          <span class="menu-badge" id="badge-pvc">0</span>
+        </a>
+        <a class="menu-item" data-cat="cloth" onclick="selectSidebarCategory('cloth')">
+          <div><span class="menu-icon">🖼️</span> Cloth & Canvas</div>
+          <span class="menu-badge" id="badge-cloth">0</span>
+        </a>
+        <a class="menu-item" data-cat="pe" onclick="selectSidebarCategory('pe')">
+          <div><span class="menu-icon">📜</span> PE Sheets</div>
+          <span class="menu-badge" id="badge-pe">0</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- RIGHT MAIN CONTENT AREA -->
+    <main class="main-content">
+      
+      <!-- TOP HEADER BAR WITH NOTIFICATIONS -->
+      <header class="top-header">
+        <h2 class="header-title" id="page-title">All Trade Inquiries</h2>
+
+        <div class="header-actions">
+          <!-- NOTIFICATION BELL ICON -->
+          <div class="notif-wrapper">
+            <button class="notif-btn" id="notif-btn" title="Pending Notifications">
+              🔔
+              <span class="notif-badge" id="notif-count-badge">0</span>
+            </button>
+
+            <!-- NOTIFICATION DROPDOWN POPUP -->
+            <div class="notif-dropdown" id="notif-dropdown">
+              <div class="notif-head">
+                <span>Pending Inquiries</span>
+                <span style="font-size:0.75rem; color:var(--primary-brand); font-weight:600" id="notif-count-text">0 New</span>
+              </div>
+              <div class="notif-list" id="notif-list">
+                <div class="notif-item"><span>No pending notifications</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="user-badge">
+            <div class="user-avatar">A</div>
+            <span>Admin Desk</span>
+          </div>
+
+          <button class="btn-logout" id="btn-logout">Sign Out</button>
+        </div>
+      </header>
+
+      <!-- CONTENT BODY -->
+      <div class="content-body">
+        
+        <!-- KPI METRICS GRID -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-title">Total Trade Inquiries</div>
+            <div class="metric-value" id="stat-total">0</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-title">Pending Review</div>
+            <div class="metric-value" id="stat-pending" style="color:#f97316">0</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-title">In Progress</div>
+            <div class="metric-value" id="stat-progress" style="color:#60a5fa">0</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-title">Closed Deals</div>
+            <div class="metric-value" id="stat-closed" style="color:#4ade80">0</div>
+          </div>
+        </div>
+
+        <!-- SEARCH AND STATUS PILLS CONTROLS -->
+        <div class="controls-bar">
+          <input type="text" id="search-input" class="search-input" placeholder="Search by customer name, phone, material...">
+
+          <div class="status-pills">
+            <button class="status-pill active" data-status="all">All</button>
+            <button class="status-pill" data-status="pending">Pending</button>
+            <button class="status-pill" data-status="contacted">Contacted</button>
+            <button class="status-pill" data-status="quote_sent">Quote Sent</button>
+            <button class="status-pill" data-status="closed">Closed</button>
+          </div>
+        </div>
+
+        <!-- TABLE CARD -->
+        <div class="table-card">
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>Customer</th>
+                  <th>Material & Category</th>
+                  <th>Depot</th>
+                  <th>Inquiry Message</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="inquiries-tbody">
+                <tr>
+                  <td colspan="7" class="empty-state">
+                    Loading inquiries from MongoDB Atlas...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <!-- TOAST CONTAINER -->
+  <div id="admin-toast-container"></div>
+
+  <!-- Admin JavaScript -->
+  <script src="admin.js"></script>
+</body>
+</html>

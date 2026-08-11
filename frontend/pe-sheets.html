@@ -282,7 +282,7 @@
       </div>
 
       <div class="brands-grid" style="margin-top: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-        <div class="brand-card">
+        <a href="pe-sheets.html" class="brand-card" style="text-decoration: none;">
           <div class="brand-card-img">
             <img src="assets/kpl-logo.jpg" alt="KPL">
           </div>
@@ -290,8 +290,8 @@
             <span class="brand-name">KPL</span>
             <span class="brand-desc">Polyethylene Flexible Sheets</span>
           </div>
-        </div>
-        <div class="brand-card">
+        </a>
+        <a href="pe-sheets.html" class="brand-card" style="text-decoration: none;">
           <div class="brand-card-img">
             <img src="assets/pe_sheets.jpg" alt="P.E. MEDIA">
           </div>
@@ -299,7 +299,7 @@
             <span class="brand-name">P.E. MEDIA</span>
             <span class="brand-desc">Eco Polyethylene Media</span>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -505,23 +505,23 @@
       <form id="quote-modal-form" class="modal-form">
         <div class="form-group">
           <label for="modal-name">Your Full Name *</label>
-          <input type="text" id="modal-name" placeholder="Ramesh Verma" required>
+          <input type="text" id="modal-name" name="name" placeholder="Ramesh Verma" required>
         </div>
 
         <div class="form-row">
           <div class="form-group">
             <label for="modal-phone">Phone / WhatsApp *</label>
-            <input type="tel" id="modal-phone" placeholder="+91 98765 43210" required>
+            <input type="tel" id="modal-phone" name="phone" placeholder="+91 98765 43210" required>
           </div>
           <div class="form-group">
             <label for="modal-company">Business / Company Name</label>
-            <input type="text" id="modal-company" placeholder="Apex Graphics">
+            <input type="text" id="modal-company" name="company" placeholder="Apex Graphics">
           </div>
         </div>
 
         <div class="form-group">
           <label for="modal-product-select">Selected Variant *</label>
-          <select id="modal-product-select" required>
+          <select id="modal-product-select" name="product" required>
             <option value="P.E. Media Eco Polyethylene Sheet">P.E. MEDIA Eco Polyethylene Sheet (150-250 Micron)</option>
             <option value="P.E. Media High-Tear PE Sheet">P.E. MEDIA High-Tear PE Sheet (250-350 Micron)</option>
             <option value="P.E. Media Backlit PE Sheet">P.E. MEDIA Translucent Backlit PE Sheet (200-280 Micron)</option>

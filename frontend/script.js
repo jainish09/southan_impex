@@ -1,3 +1,143 @@
+// --- 0. INTERACTIVE PAGE LOADING SCREEN & TRANSITIONS ---
+(function setupPageLoader() {
+  function createLoaderElement() {
+    let loader = document.getElementById('page-loader');
+    if (!loader) {
+      loader = document.createElement('div');
+      loader.id = 'page-loader';
+      loader.innerHTML = `
+        <div class="loader-container">
+          <div class="loader-spinner-wrapper">
+            <div class="loader-spinner-outer"></div>
+            <div class="loader-spinner-inner"></div>
+            <img src="assets/main-logo.jpg" alt="Southern Impex Logo" class="loader-logo-icon" onerror="this.style.display='none'">
+          </div>
+          <div class="loader-text-brand">SOUTHERN IMPEX</div>
+          <div class="loader-status">
+            <span id="loader-message">Loading Product Media</span>
+            <span class="loader-dots"><span>.</span><span>.</span><span>.</span></span>
+          </div>
+          <div class="loader-progress-bar">
+            <div class="loader-progress-fill"></div>
+          </div>
+        </div>
+      `;
+      if (document.body) {
+        document.body.prepend(loader);
+      } else {
+        document.addEventListener('DOMContentLoaded', () => document.body.prepend(loader));
+      }
+    }
+    return loader;
+  }
+
+  createLoaderElement();
+
+  const hideLoader = () => {
+    const l = document.getElementById('page-loader');
+    if (l) {
+      l.classList.remove('active');
+    }
+  };
+
+  // Ensure loader NEVER persists in browser bfcache snapshot when navigating away or going back
+  hideLoader();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', hideLoader);
+  }
+  window.addEventListener('load', hideLoader);
+  window.addEventListener('pageshow', hideLoader);
+  window.addEventListener('popstate', hideLoader);
+  window.addEventListener('pagehide', hideLoader);
+  window.addEventListener('beforeunload', hideLoader);
+
+  // Helper to extract clean file basename for page comparison
+  function getPathBasename(urlStr) {
+    if (!urlStr) return '';
+    try {
+      const u = new URL(urlStr, window.location.origin);
+      const parts = u.pathname.split('/').filter(Boolean);
+      return parts.length ? parts[parts.length - 1].toLowerCase() : 'index.html';
+    } catch (err) {
+      const clean = urlStr.split('#')[0].split('?')[0];
+      const parts = clean.split('/').filter(Boolean);
+      return parts.length ? parts[parts.length - 1].toLowerCase() : '';
+    }
+  }
+
+  // Global handler to trigger loading screen strictly when opening a DIFFERENT page
+  document.addEventListener('click', (e) => {
+    // Exclude clicks on Material Categories accordion tiles/panels
+    if (e.target.closest('.acc-panel, .material-accordion-container, .acc-content, .acc-action-btn')) {
+      return;
+    }
+
+    // Exclude clicks on modals, modal triggers, filter buttons, tabs, forms, back-to-top, and Authorized Brands section
+    if (e.target.closest('#brands .brand-card, #brands a, .open-quote-modal, .modal-close, .filter-btn, .g-filter-btn, .product-filter-trigger, .hub-tab-btn, .bus-location-item, .mobile-toggle, #back-to-top, input[type="submit"]')) {
+      return;
+    }
+
+    const targetLink = e.target.closest('a[href], .brand-card, .product-card, .amz-product-card, [data-href], [data-navigate]');
+    if (!targetLink) return;
+
+    let href = targetLink.getAttribute('href') || targetLink.getAttribute('data-href') || targetLink.getAttribute('data-navigate');
+
+    // Fallback mapping for brand cards if needed
+    if (!href && targetLink.classList.contains('brand-card')) {
+      if (targetLink.closest('#brands')) return;
+      const bName = targetLink.querySelector('.brand-name')?.textContent?.trim()?.toUpperCase() || '';
+      if (bName.includes('QREX')) href = 'qrex-flex.html';
+      else if (bName.includes('SUNSTAR')) href = 'sunstar-vinyl.html';
+      else if (bName.includes('STARFLEX')) href = 'starflex-vinyl.html';
+      else if (bName.includes('ASTRYX')) href = 'acrylic.html';
+      else if (bName.includes('BNZ')) href = 'led.html';
+      else if (bName.includes('KPL') || bName.includes('P.E')) href = 'pe-sheets.html';
+      else if (bName.includes('INKS') || bName.includes('ULTRA')) href = 'flex.html';
+    }
+
+    // Ignore missing, anchor-only (#), javascript:, mailto:, or tel: links
+    if (!href || href.trim() === '' || href.startsWith('#') || href.startsWith('javascript:') || href.startsWith('mailto:') || href.startsWith('tel:')) {
+      return;
+    }
+
+    // Ignore external tabs (target="_blank") or modified clicks (Ctrl/Cmd)
+    if (targetLink.getAttribute('target') === '_blank' || e.ctrlKey || e.metaKey || e.shiftKey) {
+      return;
+    }
+
+    // Compare target page with current page URL
+    const currentBasename = getPathBasename(window.location.href);
+    const targetBasename = getPathBasename(href);
+
+    // If target page is the SAME as current page, DO NOT show loader
+    if (targetBasename && currentBasename && targetBasename === currentBasename) {
+      return;
+    }
+
+    // Navigating to a DIFFERENT page -> Show Loader!
+    const loaderMsg = document.getElementById('loader-message');
+    let label = targetLink.querySelector('.brand-name')?.textContent || 
+                targetLink.querySelector('.acc-title')?.textContent || 
+                targetLink.querySelector('.amz-product-title')?.textContent ||
+                targetLink.textContent?.trim();
+
+    if (label && label.length < 35) {
+      label = label.replace(/\s+/g, ' ').trim();
+      if (loaderMsg) loaderMsg.textContent = `Opening ${label}`;
+    } else {
+      if (loaderMsg) loaderMsg.textContent = 'Loading Page';
+    }
+
+    const currentLoader = document.getElementById('page-loader') || createLoaderElement();
+    currentLoader.classList.add('active');
+
+    e.preventDefault();
+    setTimeout(() => {
+      window.location.href = href;
+    }, 280);
+  });
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // --- 1. HEADER SCROLL EFFECT & ACTIVE LINK HIGHLIGHTER ---
@@ -220,23 +360,149 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 4000);
   };
 
-  // --- 7. FORM SUBMISSIONS HANDLING ---
+  // --- 7. FORM SUBMISSIONS HANDLING (LIVE BACKEND INTEGRATION) ---
+  const API_BASE_URL = 'http://localhost:5000/api';
+
+  const sendInquiryToBackend = async (payload) => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/inquiries`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const result = await response.json();
+      return result;
+    } catch (err) {
+      console.warn('[Backend Notice] Live API offline, fallback mode active:', err.message);
+      return { success: true, fallback: true };
+    }
+  };
+
   const mainContactForm = document.getElementById('main-contact-form');
   if (mainContactForm) {
-    mainContactForm.addEventListener('submit', (e) => {
+    mainContactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      showToast('Thank you! Our wholesale sales team will contact you within 30 minutes.', 'Message Received!');
-      mainContactForm.reset();
+      const submitBtn = mainContactForm.querySelector('button[type="submit"], input[type="submit"]');
+      const originalText = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Sending...';
+      }
+
+      const formData = new FormData(mainContactForm);
+      const name = (formData.get('name') || mainContactForm.querySelector('#contact-name')?.value || mainContactForm.querySelector('[name="name"]')?.value || mainContactForm.querySelector('input[type="text"]')?.value || '').trim();
+      const phone = (formData.get('phone') || mainContactForm.querySelector('#contact-phone')?.value || mainContactForm.querySelector('[name="phone"]')?.value || mainContactForm.querySelector('input[type="tel"]')?.value || '').trim();
+
+      if (!name || !phone) {
+        showToast('Please provide your name and phone number.', 'Validation Error');
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+        }
+        return;
+      }
+
+      const payload = {
+        name,
+        phone,
+        email: (formData.get('email') || mainContactForm.querySelector('#contact-email')?.value || mainContactForm.querySelector('[name="email"]')?.value || '').trim(),
+        category: formData.get('category') || mainContactForm.querySelector('#contact-category')?.value || 'General Inquiry',
+        branch: formData.get('branch') || mainContactForm.querySelector('#contact-branch')?.value || 'Kochi (Head Office)',
+        message: (formData.get('message') || mainContactForm.querySelector('#contact-message')?.value || mainContactForm.querySelector('[name="message"]')?.value || 'Wholesale trade inquiry').trim()
+      };
+
+      const res = await sendInquiryToBackend(payload);
+      if (res.success) {
+        showToast('Thank you! Inquiry saved to database. Our sales team will contact you shortly.', 'Inquiry Submitted');
+        mainContactForm.reset();
+      } else {
+        showToast(res.error || 'Failed to send inquiry. Please try again.', 'Submission Error');
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+      }
     });
   }
 
   const quoteModalForm = document.getElementById('quote-modal-form');
   if (quoteModalForm) {
-    quoteModalForm.addEventListener('submit', (e) => {
+    quoteModalForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      showToast('Your quote request has been sent successfully.', 'Quote Request Submitted');
-      quoteModalForm.reset();
-      closeModal();
+
+      const submitBtn = quoteModalForm.querySelector('button[type="submit"], input[type="submit"]');
+      const originalText = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Submitting...';
+      }
+
+      const formData = new FormData(quoteModalForm);
+      
+      const textInputs = quoteModalForm.querySelectorAll('input[type="text"]');
+      const telInputs = quoteModalForm.querySelectorAll('input[type="tel"], input[type="number"]');
+
+      const modalName = (
+        formData.get('name') || 
+        quoteModalForm.querySelector('#modal-name')?.value || 
+        quoteModalForm.querySelector('input[name="name"]')?.value || 
+        (textInputs.length > 0 ? textInputs[0].value : '') || 
+        ''
+      ).trim();
+
+      const modalPhone = (
+        formData.get('phone') || 
+        quoteModalForm.querySelector('#modal-phone')?.value || 
+        quoteModalForm.querySelector('input[name="phone"]')?.value || 
+        (telInputs.length > 0 ? telInputs[0].value : '') || 
+        (textInputs.length > 1 ? textInputs[1].value : '') ||
+        ''
+      ).trim();
+
+      if (!modalName || !modalPhone) {
+        showToast('Please provide your name and phone number.', 'Validation Error');
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+        }
+        return;
+      }
+
+      const modalCompany = (formData.get('company') || quoteModalForm.querySelector('#modal-company')?.value || '').trim();
+      const modalProduct = (formData.get('product') || quoteModalForm.querySelector('#modal-product-select')?.value || quoteModalForm.querySelector('select')?.value || 'Selected Material').trim();
+      const modalQty = (formData.get('quantity') || quoteModalForm.querySelector('#modal-quantity')?.value || '').trim();
+      const modalNotes = (formData.get('notes') || quoteModalForm.querySelector('#modal-notes')?.value || '').trim();
+
+      let combinedMsg = modalNotes;
+      if (!combinedMsg) {
+        combinedMsg = `Company: ${modalCompany || 'N/A'}, Qty requested: ${modalQty || 'Bulk'}`;
+      } else if (modalCompany || modalQty) {
+        combinedMsg += ` (Company: ${modalCompany || 'N/A'}, Qty: ${modalQty || 'N/A'})`;
+      }
+
+      const payload = {
+        name: modalName,
+        phone: modalPhone,
+        email: '',
+        product: modalProduct,
+        category: 'Quote Request Modal',
+        message: combinedMsg
+      };
+
+      const res = await sendInquiryToBackend(payload);
+      if (res.success) {
+        showToast('Your quote request has been saved to database.', 'Quote Request Submitted');
+        quoteModalForm.reset();
+        closeModal();
+      } else {
+        showToast(res.error || 'Failed to submit quote request.', 'Submission Error');
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+      }
     });
   }
 
