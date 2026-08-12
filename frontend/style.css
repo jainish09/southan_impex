@@ -1868,7 +1868,10 @@ button {
   transform: scale(1.1);
 }
 
-/* RESPONSIVE DESIGN - MEDIA QUERIES */
+/* ==========================================================================
+   RESPONSIVE DESIGN & MOBILE OPTIMIZATIONS (DESKTOP LAYOUT 100% UNTOUCHED)
+   ========================================================================== */
+
 @media (max-width: 1200px) {
   .products-grid {
     grid-template-columns: repeat(4, 1fr);
@@ -1888,16 +1891,24 @@ button {
 }
 
 @media (max-width: 992px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
   .hero-grid, .about-grid, .contact-grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
   }
+
   .testimonials-grid {
     grid-template-columns: 1fr;
   }
+
   .products-grid, .product-category-tiles {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .hero-mockup-wrapper {
     transform: none;
     max-width: 550px;
@@ -1906,57 +1917,826 @@ button {
 }
 
 @media (max-width: 768px) {
+  /* Header & Navigation */
+  header.header {
+    height: 70px;
+    background: rgba(10, 10, 12, 0.95);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .nav-container {
+    height: 70px;
+    padding: 0 1.25rem;
+  }
+
+  .logo-link img {
+    height: 42px !important;
+    max-width: 190px !important;
+  }
+
+  .mobile-toggle {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 8px;
+    transition: var(--transition-fast);
+  }
+
+  .mobile-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--text-white);
+    border-radius: 2px;
+    margin: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
   .nav-menu {
     position: fixed;
-    top: 80px;
+    top: 70px;
     left: -100%;
     width: 100%;
-    height: calc(100vh - 80px);
-    background-color: var(--bg-dark);
+    height: calc(100vh - 70px);
+    background: rgba(10, 10, 12, 0.98);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     flex-direction: column;
-    align-items: flex-start;
-    padding: 2rem;
-    gap: 1.5rem;
-    transition: var(--transition-normal);
+    align-items: stretch;
+    padding: 1.5rem 1.5rem 2.5rem 1.5rem;
+    gap: 0;
+    transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     overflow-y: auto;
+    border-top: 1px solid var(--border-dark);
+    z-index: 9999;
   }
+
   .nav-menu.active {
     left: 0;
   }
-  .mobile-toggle {
+
+  .nav-item {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .nav-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0.5rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-white);
+    width: 100%;
+  }
+
+  /* Inline Expanded Dropdown inside Mobile Drawer */
+  .nav-menu .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: none;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--border-radius-md);
+    padding: 0.5rem 0.75rem;
+    margin: 0.25rem 0 0.75rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    width: 100%;
+  }
+
+  .nav-menu .dropdown-link {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text-muted-dark);
+    border-radius: 6px;
     display: block;
   }
+
+  .nav-menu .dropdown-link:hover,
+  .nav-menu .dropdown-link:active {
+    background: rgba(217, 4, 22, 0.15);
+    color: var(--text-white);
+  }
+
   .header-action {
     display: none;
   }
-  .products-grid {
-    grid-template-columns: repeat(2, 1fr);
+
+  /* Hero Section */
+  section.hero {
+    padding: 110px 0 50px 0;
+    min-height: auto;
   }
-  .brands-grid {
-    grid-template-columns: repeat(2, 1fr);
+
+  .hero-content {
+    max-width: 100%;
+    text-align: left;
   }
-  .stats-grid, .footer-info-grid {
-    grid-template-columns: repeat(2, 1fr);
+
+  .hero-badge {
+    margin-bottom: 1rem;
   }
+
+  .hero-title {
+    font-size: 2.1rem;
+    line-height: 1.22;
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.45;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-description {
+    font-size: 0.925rem;
+    line-height: 1.55;
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-actions {
+    gap: 0.85rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-trust-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.65rem;
+    padding-top: 1.25rem;
+    text-align: center;
+  }
+
+  .trust-divider {
+    display: none;
+  }
+
+  .trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 0.75rem 0.35rem;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .trust-number {
+    font-size: 1.3rem;
+  }
+
+  .trust-label {
+    font-size: 0.68rem;
+  }
+
+  /* Stats Section */
+  .stats {
+    padding: 45px 0;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+  }
+
+  .stat-item {
+    padding: 1.25rem 0.75rem;
+    border-radius: var(--border-radius-md);
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+  }
+
+  /* About Section */
+  .about-section {
+    padding: 55px 0;
+  }
+
+  .about-title {
+    font-size: 1.75rem;
+    line-height: 1.25;
+  }
+
+  .about-lead {
+    font-size: 1rem;
+  }
+
+  .about-text {
+    font-size: 0.9rem;
+  }
+
   .pillars-grid {
     grid-template-columns: 1fr;
+    gap: 0.85rem;
   }
+
+  .pillar-card {
+    padding: 1rem;
+  }
+
+  .about-visual {
+    margin-top: 1rem;
+  }
+
+  .about-image-wrapper img {
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: var(--border-radius-lg);
+  }
+
+  /* Material Accordion Showcase Ultra-Premium Mobile Cards */
+  .material-accordion-container {
+    flex-direction: column !important;
+    height: auto !important;
+    gap: 1.5rem !important;
+    margin-top: 2rem !important;
+    margin-bottom: 2.5rem !important;
+  }
+
+  .acc-panel {
+    width: 100% !important;
+    min-height: 285px !important;
+    height: auto !important;
+    flex: none !important;
+    border-radius: 24px !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    background-size: cover !important;
+    background-position: center !important;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease !important;
+  }
+
+  .acc-panel:active, .acc-panel:hover {
+    transform: scale(0.985) !important;
+    border-color: rgba(247, 127, 0, 0.5) !important;
+  }
+
+  .highlight-acc-panel {
+    border: 1.5px solid rgba(247, 127, 0, 0.7) !important;
+    box-shadow: 0 18px 45px rgba(247, 127, 0, 0.25) !important;
+  }
+
+  .acc-overlay {
+    background: linear-gradient(180deg, rgba(10, 10, 14, 0.25) 0%, rgba(10, 10, 14, 0.7) 40%, rgba(10, 10, 14, 0.96) 88%) !important;
+  }
+
+  /* Fixed Index Badge on Mobile Top Left */
+  .acc-index {
+    top: 16px !important;
+    left: 16px !important;
+    font-size: 0.75rem !important;
+    font-weight: 800 !important;
+    padding: 0.3rem 0.75rem !important;
+    border-radius: 20px !important;
+    background: rgba(10, 10, 14, 0.85) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    color: var(--primary-amber) !important;
+    z-index: 4 !important;
+  }
+
+  .acc-flagship-badge {
+    top: 16px !important;
+    right: 16px !important;
+    font-size: 0.65rem !important;
+    font-weight: 800 !important;
+    padding: 0.3rem 0.75rem !important;
+    border-radius: 20px !important;
+    z-index: 4 !important;
+  }
+
+  .acc-collapsed-title {
+    display: none !important;
+  }
+
+  /* Content area starts safely below top badges */
+  .acc-content {
+    position: relative !important;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+    padding: 3.8rem 1.35rem 1.35rem 1.35rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    min-height: 285px !important;
+    z-index: 3 !important;
+  }
+
+  .acc-category-tag {
+    font-size: 0.725rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    color: #FF9F1C !important;
+    margin-bottom: 0.35rem !important;
+    display: block !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
+  }
+
+  .acc-title {
+    font-size: 1.5rem !important;
+    font-weight: 900 !important;
+    line-height: 1.15 !important;
+    margin-bottom: 0.4rem !important;
+    color: #ffffff !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .acc-desc {
+    font-size: 0.85rem !important;
+    color: rgba(255, 255, 255, 0.82) !important;
+    line-height: 1.45 !important;
+    margin-bottom: 0.85rem !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  /* Glowing Brand Chips / Tags on Mobile */
+  .acc-brands-mini {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.4rem !important;
+    margin-bottom: 1rem !important;
+    font-size: 0.7rem !important;
+  }
+
+  .acc-brands-mini span {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(6px) !important;
+    padding: 0.25rem 0.65rem !important;
+    border-radius: 8px !important;
+    color: #FF9F1C !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  /* Full-width Glass/Neon Button on Mobile Cards */
+  .acc-action-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    font-size: 0.875rem !important;
+    font-weight: 800 !important;
+    padding: 0.8rem 1.25rem !important;
+    border-radius: 12px !important;
+    background: var(--gradient-red-orange) !important;
+    color: #ffffff !important;
+    box-shadow: 0 8px 24px rgba(217, 4, 22, 0.4) !important;
+    margin-top: 0.25rem !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  /* Filter Buttons Horizontal Swipable Pill Bar */
+  .product-filter-bar {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 0.5rem;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.75rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .product-filter-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    flex: 0 0 auto;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  /* Breadcrumb Navigation on Product Listing Pages */
+  .amz-breadcrumb {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .amz-breadcrumb a {
+    color: #d90416;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  /* Amazon-style Product Cards Mobile Stacking Fix */
+  .amz-container {
+    padding: 0 12px !important;
+  }
+
+  .amz-sidebar {
+    display: none !important;
+  }
+
+  .amz-main {
+    width: 100% !important;
+  }
+
+  .amz-product-list {
+    gap: 16px !important;
+  }
+
+  .amz-product-card {
+    flex-direction: column !important;
+    width: 100% !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06) !important;
+  }
+
+  .amz-product-img {
+    width: 100% !important;
+    height: 190px !important;
+    padding: 15px !important;
+    background: #f8fafc !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .amz-product-img img {
+    max-height: 160px !important;
+    max-width: 100% !important;
+    width: auto !important;
+    object-fit: contain !important;
+  }
+
+  .amz-product-details {
+    padding: 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .amz-product-title {
+    font-size: 1.05rem !important;
+    line-height: 1.4 !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    margin-bottom: 8px !important;
+    display: block !important;
+  }
+
+  .amz-product-rating {
+    font-size: 0.85rem !important;
+    color: #475569 !important;
+    margin-bottom: 8px !important;
+    flex-wrap: wrap !important;
+  }
+
+  .amz-stars {
+    font-size: 0.95rem !important;
+    color: #f77f00 !important;
+  }
+
+  .amz-product-specs {
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+    color: #334155 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .amz-stock {
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    color: #16a34a !important;
+    margin-bottom: 10px !important;
+  }
+
+  .amz-product-price {
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    color: #d90416 !important;
+    margin-bottom: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+  }
+
+  .amz-price-symbol {
+    font-size: 0.75rem !important;
+    background: rgba(217, 4, 22, 0.1) !important;
+    color: #d90416 !important;
+    padding: 3px 8px !important;
+    border-radius: 6px !important;
+    font-weight: 800 !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+  }
+
+  .amz-product-action {
+    width: 100% !important;
+    background: #f8fafc !important;
+    padding: 12px 16px !important;
+    border-left: none !important;
+    border-top: 1px solid #f1f5f9 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .amz-prime {
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    color: #0284c7 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .amz-btn {
+    width: auto !important;
+    padding: 9px 20px !important;
+    font-size: 0.875rem !important;
+    font-weight: 700 !important;
+    background: linear-gradient(135deg, #d90416, #f77f00) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 14px rgba(217, 4, 22, 0.35) !important;
+    cursor: pointer !important;
+  }
+
+  /* Product Cards & Grid */
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .product-card-image {
+    height: 160px;
+  }
+
+  .product-card-body {
+    padding: 1rem;
+  }
+
+  .product-title {
+    font-size: 1rem;
+  }
+
+  .product-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .product-actions .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding: 0.65rem 0.85rem;
+    font-size: 0.85rem;
+  }
+
+  /* Branch Network Hub Widget */
+  .branch-hub-section {
+    padding: 45px 0;
+  }
+
+  .branch-hub-card {
+    padding: 1.25rem 1rem;
+    border-radius: var(--border-radius-lg);
+  }
+
+  .hub-header-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .hub-title {
+    font-size: 1.2rem;
+  }
+
+  .hub-tabs-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .hub-tab-btn {
+    padding: 0.65rem 0.5rem;
+    font-size: 0.8rem;
+    justify-content: center;
+  }
+
+  .hub-contact-list {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .hub-actions-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .hub-actions-row .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hub-map-panel {
+    height: 250px;
+  }
+
+  /* Brands & Testimonials */
+  .brands-section, .testimonials-section {
+    padding: 50px 0;
+  }
+
+  .brands-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+
+  .brand-card {
+    padding: 1rem 0.5rem;
+  }
+
+  .brand-logo {
+    height: 36px;
+  }
+
+  /* Spec Tables Responsive Container */
+  .spec-table-container,
+  .spec-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Floating Contact Buttons on Mobile - Horizontal Row Dock */
+  .floating-actions {
+    bottom: 16px !important;
+    right: 14px !important;
+    flex-direction: row !important;
+    gap: 0.5rem !important;
+    z-index: 99999 !important;
+  }
+
+  .float-btn {
+    width: 42px !important;
+    height: 42px !important;
+    font-size: 1rem !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  /* Modals */
+  .modal-content {
+    width: 94vw;
+    max-width: 480px;
+    max-height: 88vh;
+    padding: 1.5rem 1.25rem;
+    border-radius: 20px;
+  }
+
+  .modal-header h3 {
+    font-size: 1.3rem;
+  }
+
   .form-row {
     grid-template-columns: 1fr;
+    gap: 0.85rem;
   }
-  .hero-title {
-    font-size: 2.5rem;
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 16px !important;
+    padding: 0.75rem 0.85rem;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 50px 0 25px 0;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-info-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .sub-footer-container {
+    flex-direction: column;
+    gap: 0.85rem;
+    text-align: center;
   }
 }
 
-@media (max-width: 576px) {
-  .products-grid, .product-category-tiles, .gallery-grid, .stats-grid, .footer-info-grid, .brands-grid {
-    grid-template-columns: 1fr;
+/* --- SMALL MOBILE PHONES (<= 480px) --- */
+@media (max-width: 480px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
-  .sub-footer-container {
+
+  .hero-title {
+    font-size: 1.75rem;
+    line-height: 1.25;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .hero-description {
+    font-size: 0.88rem;
+  }
+
+  .hero-actions {
     flex-direction: column;
-    gap: 1rem;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
     text-align: center;
+    justify-content: center;
+    padding: 0.85rem 1.25rem;
+  }
+
+  .hero-trust-bar {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.4rem;
+  }
+
+  .trust-item {
+    padding: 0.6rem 0.25rem;
+  }
+
+  .trust-number {
+    font-size: 1.1rem;
+  }
+
+  .trust-label {
+    font-size: 0.62rem;
+  }
+
+  .products-grid, .product-category-tiles {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .product-card-image {
+    height: 190px;
+  }
+
+  .brands-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hub-tabs-row {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -2338,13 +3118,14 @@ button {
     border-bottom: 1px solid var(--border-dark);
   }
   .hub-map-panel {
-    min-height: 260px;
+    min-height: 250px;
   }
 }
 
 @media (max-width: 576px) {
   .hub-tabs-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
   }
   .hub-header-bar {
     flex-direction: column;
@@ -2354,7 +3135,7 @@ button {
     max-width: 100%;
   }
   .branch-hub-card {
-    padding: 1.25rem;
+    padding: 1.15rem 0.85rem;
   }
 }
 
@@ -2507,6 +3288,74 @@ button {
 @keyframes loader-blink {
   0%, 80%, 100% { opacity: 0.2; }
   40% { opacity: 1; }
+}
+
+/* ==========================================================================
+   NATIVE MOBILE BOTTOM NAVIGATION DOCK (ONLY SHOWN ON MOBILE <= 768px)
+   ========================================================================== */
+.mobile-bottom-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 64px !important;
+  }
+
+  .mobile-bottom-nav {
+    display: flex !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 64px !important;
+    background: rgba(10, 10, 14, 0.94) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    z-index: 99990 !important;
+    padding: 0 0.5rem !important;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  .mobile-nav-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 3px !important;
+    color: #94a3b8 !important;
+    text-decoration: none !important;
+    background: none !important;
+    border: none !important;
+    font-size: 0.68rem !important;
+    font-weight: 600 !important;
+    padding: 6px 10px !important;
+    border-radius: 10px !important;
+    transition: all 0.25s ease !important;
+    cursor: pointer !important;
+  }
+
+  .mobile-nav-item.active, .mobile-nav-item:active {
+    color: var(--primary-amber) !important;
+    transform: translateY(-2px) !important;
+  }
+
+  .mobile-nav-whatsapp {
+    color: #25D366 !important;
+  }
+
+  .mobile-nav-quote {
+    color: var(--primary-orange) !important;
+    background: rgba(247, 127, 0, 0.12) !important;
+    border: 1px solid rgba(247, 127, 0, 0.3) !important;
+  }
+
+  .floating-actions {
+    bottom: 78px !important;
+  }
 }
 
 

@@ -170,6 +170,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    const mobileNavItems = document.querySelectorAll('.mobile-bottom-nav .mobile-nav-item');
+    mobileNavItems.forEach(item => {
+      if (item.getAttribute('href')) {
+        item.classList.remove('active');
+        if (item.getAttribute('href') === `#${currentSectionId}`) {
+          item.classList.add('active');
+        }
+      }
+    });
+
     // Back to top button visibility
     const backToTopBtn = document.getElementById('back-to-top');
     if (backToTopBtn) {
