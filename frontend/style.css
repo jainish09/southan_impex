@@ -491,13 +491,29 @@ button {
   text-align: left;
 }
 
+.hero-subtitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-white);
+  margin-bottom: 0.85rem;
+  max-width: 640px;
+  text-align: left;
+  line-height: 1.4;
+}
+
 .hero-description {
-  font-size: 1.075rem;
-  font-weight: 300;
+  font-size: 1.05rem;
+  font-weight: 400;
   color: var(--text-muted-dark);
   margin-bottom: 2.25rem;
-  max-width: 620px;
+  max-width: 640px;
   text-align: left;
+  line-height: 1.6;
+}
+
+.hero-description strong {
+  color: var(--text-white);
+  font-weight: 700;
 }
 
 .hero-actions {
@@ -740,7 +756,19 @@ button {
   font-size: 0.975rem;
   color: var(--text-muted-light);
   line-height: 1.7;
-  margin-bottom: 2.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.about-quote {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--primary-red);
+  background: rgba(217, 4, 22, 0.04);
+  border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
 }
 
 .pillars-grid {
