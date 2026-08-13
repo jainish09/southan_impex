@@ -523,59 +523,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- 8. ANIMATED STATS COUNTERS ---
-  const statsSection = document.querySelector('.stats');
-  const statNumbers = document.querySelectorAll('.stat-number');
-  let animated = false;
 
-  const animateCounters = () => {
-    statNumbers.forEach(counter => {
-      const targetText = counter.getAttribute('data-target');
-      const suffix = targetText.replace(/[0-9]/g, '');
-      const targetVal = parseInt(targetText.replace(/[^0-9]/g, ''), 10);
-
-      if (isNaN(targetVal)) {
-        counter.textContent = targetText;
-        return;
-      }
-
-      let currentVal = 0;
-      const duration = 2000;
-      const steps = 50;
-      const stepVal = Math.ceil(targetVal / steps);
-      const intervalTime = duration / steps;
-
-      const timer = setInterval(() => {
-        currentVal += stepVal;
-        if (currentVal >= targetVal) {
-          currentVal = targetVal;
-          clearInterval(timer);
-        }
-
-        if (targetText.includes('+')) {
-          counter.textContent = currentVal + '+';
-        } else {
-          counter.textContent = currentVal;
-        }
-      }, intervalTime);
-    });
-  };
-
-  if ('IntersectionObserver' in window && statsSection) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !animated) {
-          animateCounters();
-          animated = true;
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-
-    observer.observe(statsSection);
-  } else {
-    animateCounters();
-  }
 
   // --- 9. UNIFIED BRANCH HUB & MAP INTERACTIVITY ---
   const hubTabs = document.querySelectorAll('.hub-tab-btn');
