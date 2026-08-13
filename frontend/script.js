@@ -145,13 +145,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('section[id], body[id]');
   const navLinks = document.querySelectorAll('.nav-menu .nav-link');
 
+  let lastScrollTop = 0;
   const handleScroll = () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
     // Header shadow on scroll
-    if (window.scrollY > 50) {
+    if (scrollTop > 50) {
       header.classList.add('scrolled');
+      
+      // Smart Sticky Header logic: hide on scroll down, show on scroll up
+      if (scrollTop > 150) {
+        if (scrollTop > lastScrollTop) {
+          header.classList.add('header-hidden');
+        } else {
+          header.classList.remove('header-hidden');
+        }
+      } else {
+        header.classList.remove('header-hidden');
+      }
     } else {
       header.classList.remove('scrolled');
+      header.classList.remove('header-hidden');
     }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 
     // Active Section Highlight
     let currentSectionId = '';
@@ -715,6 +732,136 @@ document.addEventListener('DOMContentLoaded', () => {
       requestAnimationFrame(checkVideoTime);
     });
     requestAnimationFrame(checkVideoTime);
+  }
+
+  // --- ANIMATION 2: FADE-UP SCROLL REVEAL OBSERVER ---
+  const fadeElements = document.querySelectorAll('.scroll-reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+      } else {
+        entry.target.classList.remove('revealed');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  fadeElements.forEach(el => revealObserver.observe(el));
+
+  // Immediately reveal target sections when clicking anchor links to avoid transitions delay
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', () => {
+      const href = link.getAttribute('href');
+      if (href && href.length > 1) {
+        try {
+          const targetSection = document.querySelector(href);
+          if (targetSection) {
+            targetSection.classList.add('revealed');
+            targetSection.querySelectorAll('.scroll-reveal').forEach(el => {
+              el.classList.add('revealed');
+            });
+          }
+        } catch (e) {
+          // Ignore invalid selector errors if any
+        }
+      }
+    });
+  });
+
+  // --- ANIMATION 3: COSMIC SPOTLIGHT CAROUSEL ---
+  const slides = document.querySelectorAll('.testimonial-slide');
+  const prevBtn = document.querySelector('.carousel-nav.prev');
+  const nextBtn = document.querySelector('.carousel-nav.next');
+  const dots = document.querySelectorAll('.carousel-dots .dot');
+  let currentSlide = 0;
+  let autoplayTimer = null;
+
+  function showSlide(index) {
+    if (slides.length === 0) return;
+    
+    if (index >= slides.length) index = 0;
+    if (index < 0) index = slides.length - 1;
+    
+    currentSlide = index;
+
+    slides.forEach((slide, i) => {
+      if (i === currentSlide) {
+        slide.classList.add('active');
+      } else {
+        slide.classList.remove('active');
+      }
+    });
+
+    dots.forEach((dot, i) => {
+      if (i === currentSlide) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  }
+
+  function nextSlide() {
+    showSlide(currentSlide + 1);
+  }
+
+  function prevSlide() {
+    showSlide(currentSlide - 1);
+  }
+
+  function resetAutoplay() {
+    if (autoplayTimer) clearInterval(autoplayTimer);
+    autoplayTimer = setInterval(nextSlide, 5000);
+  }
+
+  if (slides.length > 0) {
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetAutoplay();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetAutoplay();
+      });
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', (e) => {
+        const index = parseInt(e.target.getAttribute('data-index'));
+        showSlide(index);
+        resetAutoplay();
+      });
+    });
+
+    // Touch swipe support for mobile layout
+    const track = document.querySelector('.testimonial-carousel-track');
+    if (track) {
+      let startX = 0;
+      let endX = 0;
+      
+      track.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+      }, { passive: true });
+      
+      track.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        const diffX = startX - endX;
+        if (Math.abs(diffX) > 50) {
+          if (diffX > 0) {
+            nextSlide();
+          } else {
+            prevSlide();
+          }
+          resetAutoplay();
+        }
+      }, { passive: true });
+    }
+
+    resetAutoplay();
   }
 });
 

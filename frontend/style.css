@@ -2655,12 +2655,12 @@ button {
     -webkit-overflow-scrolling: touch;
   }
 
-  /* Floating Contact Buttons on Mobile - Horizontal Row Dock */
+  /* Floating Contact Buttons on Mobile - Vertical Stack */
   .floating-actions {
-    bottom: 16px !important;
-    right: 14px !important;
-    flex-direction: row !important;
-    gap: 0.5rem !important;
+    bottom: 20px !important;
+    right: 16px !important;
+    flex-direction: column-reverse !important;
+    gap: 0.65rem !important;
     z-index: 99999 !important;
   }
 
@@ -3341,6 +3341,134 @@ button {
 .amz-product-price,
 .amz-prime {
   display: none !important;
+}
+
+/* --- ANIMATION 1: SMART STICKY HEADER --- */
+.header.header-hidden {
+  transform: translateY(-100%);
+  box-shadow: none;
+}
+
+/* --- ANIMATION 2: FADE-UP SCROLL REVEAL --- */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- ANIMATION 3: COSMIC SPOTLIGHT CAROUSEL --- */
+.testimonial-carousel-container {
+  position: relative;
+  max-width: 800px;
+  margin: 3.5rem auto 0 auto;
+  padding: 0 4rem;
+}
+
+.testimonial-carousel-track {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+}
+
+.testimonial-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.96) translateY(10px);
+  transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+              transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+              visibility 0.6s;
+}
+
+.testimonial-slide.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1) translateY(0);
+  z-index: 2;
+}
+
+/* Nav Buttons */
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-nav:hover {
+  background: var(--primary-red);
+  color: var(--text-white);
+  border-color: var(--primary-red);
+  box-shadow: 0 6px 20px rgba(217, 4, 22, 0.25);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-nav.prev {
+  left: 0px;
+}
+
+.carousel-nav.next {
+  right: 0px;
+}
+
+/* Indicator Dots */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.carousel-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-dots .dot.active {
+  background-color: var(--primary-red);
+  width: 20px;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .testimonial-carousel-container {
+    padding: 0 0.5rem;
+  }
+  .carousel-nav {
+    display: none;
+  }
+  .testimonial-carousel-track {
+    min-height: 290px;
+  }
 }
 
 
