@@ -684,6 +684,38 @@ document.addEventListener('DOMContentLoaded', () => {
   } else if (hubCard) {
     hubCard.classList.add('is-visible');
   }
+
+  // Set background video playback rate to 0.65 and pause 1-2 frames before the end for 1 second before looping
+  const heroVideo = document.querySelector('.hero-video-player');
+  if (heroVideo) {
+    heroVideo.playbackRate = 0.65;
+    
+    let isPausedAtEnd = false;
+    function checkVideoTime() {
+      if (heroVideo && !heroVideo.paused && heroVideo.duration) {
+        const timeRemaining = heroVideo.duration - heroVideo.currentTime;
+        // Pause approx 1 frame before the end (0.05 seconds remaining)
+        if (timeRemaining > 0 && timeRemaining <= 0.05 && !isPausedAtEnd) {
+          isPausedAtEnd = true;
+          heroVideo.pause();
+          setTimeout(() => {
+            heroVideo.currentTime = 0;
+            heroVideo.play().then(() => {
+              isPausedAtEnd = false;
+            }).catch(() => {
+              isPausedAtEnd = false;
+            });
+          }, 1000);
+        }
+      }
+      requestAnimationFrame(checkVideoTime);
+    }
+    
+    heroVideo.addEventListener('play', () => {
+      requestAnimationFrame(checkVideoTime);
+    });
+    requestAnimationFrame(checkVideoTime);
+  }
 });
 
 
