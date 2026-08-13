@@ -2438,24 +2438,6 @@ button {
     margin-bottom: 12px !important;
   }
 
-  .amz-stock {
-    font-size: 0.85rem !important;
-    font-weight: 700 !important;
-    color: #16a34a !important;
-    margin-bottom: 10px !important;
-  }
-
-  .amz-product-price {
-    font-size: 1.1rem !important;
-    font-weight: 700 !important;
-    color: #d90416 !important;
-    margin-bottom: 12px !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-    flex-wrap: wrap !important;
-  }
-
   .amz-price-symbol {
     font-size: 0.75rem !important;
     background: rgba(217, 4, 22, 0.1) !important;
@@ -3352,6 +3334,13 @@ button {
 @keyframes loader-blink {
   0%, 80%, 100% { opacity: 0.2; }
   40% { opacity: 1; }
+}
+
+/* Global override to hide stock, B2B pricing, and brand badges above quote button on both desktop and mobile layouts */
+.amz-stock, 
+.amz-product-price,
+.amz-prime {
+  display: none !important;
 }
 
 
