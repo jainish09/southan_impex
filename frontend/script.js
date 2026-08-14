@@ -544,7 +544,7 @@ document.addEventListener('DOMContentLoaded', () => {
       subtitle: 'Central Master Supply Depot & Executive Head Office',
       badge: 'HEAD OFFICE',
       badgeClass: 'hq',
-      address: 'Metro Pillar 420, Kalamassery, Kochi, Kerala 682033',
+      address: '69/2473A, LFC Cross Road, Opp. ICICI Bank, Opp. Link Park Line, Pachalam, Ernakulam, Kochi - 682012',
       phone: '+91 98470 12345 / 0484 2555777',
       embedUrl: 'https://maps.google.com/maps?q=Southern+Impex,+Kochi,+Kerala&t=&z=15&ie=UTF8&iwloc=&output=embed',
       directUrl: 'https://www.google.com/maps/search/?api=1&query=Southern+Impex+Kochi+Kerala'
@@ -682,8 +682,8 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(checkVideoTime);
   }
 
-  // --- ANIMATION 2: FADE-UP SCROLL REVEAL OBSERVER ---
-  const fadeElements = document.querySelectorAll('.scroll-reveal');
+  // --- ANIMATION 2: FADE-UP, SIDE & DOWN REVEAL OBSERVER ---
+  const fadeElements = document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-down');
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -705,7 +705,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const targetSection = document.querySelector(href);
           if (targetSection) {
             targetSection.classList.add('revealed');
-            targetSection.querySelectorAll('.scroll-reveal').forEach(el => {
+            targetSection.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-down').forEach(el => {
               el.classList.add('revealed');
             });
           }

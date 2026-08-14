@@ -1,171 +1,227 @@
-# Southern Impex — Web System Architecture Specification
+# Southern Impex — Web & System Architecture Specification
 
-This document details the software architecture, design patterns, component hierarchy, and data flow of the **Southern Impex** web application platform.
+This document details the software architecture, design patterns, component hierarchy, data models, and backend REST API structure of the **Southern Impex** wholesale master supply house platform.
 
 ---
 
 ## 🏗️ High-Level System Architecture
 
-The Southern Impex web application uses a modular, decoupled tier structure designed for high performance, visual excellence, and seamless customer interaction.
+The Southern Impex platform uses a modular, decoupled 3-tier architecture designed for maximum performance, visual impact, security, and real-time wholesale lead management.
 
 ```mermaid
 graph TD
-    subgraph Client ["Client Browser (Frontend Presentation Layer)"]
-        UI ["HTML5 Semantic Views"]
-        CSS ["Vanilla CSS Design System (style.css)"]
-        JS ["ES6 JavaScript Engine (script.js)"]
+    subgraph Client ["Client Presentation Tier (Browser)"]
+        PublicUI ["Public Website Views (HTML5)"]
+        AdminUI ["Admin Portal Interface (admin/index.html)"]
+        CSS ["Vanilla CSS Design Tokens (style.css / admin.css)"]
+        JS ["ES6 JavaScript Engine (script.js / admin.js)"]
     end
 
-    subgraph Modules ["Frontend UI & Interactive Modules"]
-        Hero ["Cinematic Video Hero"]
-        BranchHub ["Unified Branch Network Hub & Maps"]
-        Catalog ["Product Catalog & Category Filters"]
-        Modal ["Quote Request Dialog System"]
-        Toast ["Toast Notification Engine"]
-        Counter ["IntersectionObserver Stats Counter"]
+    subgraph Backend ["Backend API Tier (Node.js + Express)"]
+        Server ["Express HTTP Server (server.js)"]
+        SecMw ["Security & CORS Middleware (Helmet, CORS, Morgan)"]
+        AuthMw ["JWT Authentication & RBAC Middleware"]
+        Router ["Express Domain Routers"]
+        Ctrl ["API Controller Layer (Auth, Product, Inquiry, Branch)"]
     end
 
-    subgraph External ["External Services Layer"]
-        GMaps ["Google Maps Embed API"]
-        GNav ["Google Maps Navigation Link"]
+    subgraph Data ["Data Storage Tier (MongoDB Database)"]
+        Mongoose ["Mongoose ODM Layer"]
+        DB [("MongoDB Atlas / Local DB")]
     end
 
-    subgraph Backend ["Backend Tier (Laravel + MySQL)"]
-        API ["Laravel RESTful API"]
-        DB [("MySQL Database")]
-    end
-
-    Client --> Modules
-    JS --> BranchHub
-    BranchHub --> GMaps
-    BranchHub --> GNav
-    Modules --> API
-    API --> DB
+    PublicUI --> JS
+    AdminUI --> JS
+    JS -->|"HTTP / REST API (Fetch)"| Server
+    Server --> SecMw
+    SecMw --> Router
+    Router --> AuthMw
+    AuthMw --> Ctrl
+    Ctrl --> Mongoose
+    Mongoose --> DB
 ```
 
 ---
 
-## 🎨 Presentation Layer Architecture (Frontend Design System)
+## 🎨 Presentation Layer Architecture (Frontend & Admin UI)
 
-The presentation layer is engineered using a custom Vanilla CSS tokenized design system (`style.css`), enforcing consistent visual identity across all views.
+The presentation layer is engineered using standard Vanilla CSS design tokens (`style.css`), enforcing strict brand identity across all 12 public views and the administrative dashboard.
 
 ### CSS Design Tokens (`:root`)
-- **Primary Colors**:
-  - `--primary-red`: `#D90416` (Brand Signature Red)
-  - `--primary-orange`: `#F77F00` (Warm Accent Orange)
-  - `--primary-amber`: `#FF9F1C` (High Visibility Highlight)
-- **Dark Mode Backgrounds**:
-  - `--bg-dark`: `#121212`
-  - `--bg-dark-card`: `#1C1C1E`
-  - `--bg-darker`: `#0A0A0C`
-- **Typography Tokens**:
-  - `--font-headings`: `'Poppins', sans-serif` (Bold geometric headers)
-  - `--font-body`: `'Inter', sans-serif` (High readability body font)
-- **Glassmorphism Tokens**:
-  - `--glass-bg`: `rgba(255, 255, 255, 0.04)`
-  - `--glass-border`: `rgba(255, 255, 255, 0.1)`
+
+```css
+:root {
+  /* Brand Core Colors */
+  --primary-red: #D90416;       /* Brand Signature Red */
+  --primary-orange: #F77F00;    /* Warm Accent Orange */
+  --primary-amber: #FF9F1C;     /* High Visibility Highlight */
+  
+  /* Dark Mode & Surface Backgrounds */
+  --bg-dark: #121212;
+  --bg-dark-card: #1C1C1E;
+  --bg-darker: #0A0A0C;
+  --bg-card-hover: #262629;
+  
+  /* Glassmorphism & Borders */
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-card: rgba(28, 28, 30, 0.7);
+  
+  /* Typography */
+  --font-headings: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+```
 
 ---
 
 ## 📍 Interactive Branch Network Hub Architecture
 
-The Branch Network Hub (`#branches`) is designed as a unified, compact, high-efficiency location switching dashboard.
+The Branch Network Hub (`#branches`) operates as an event-driven location switching dashboard that dynamically updates without page reloads.
 
 ```mermaid
 graph LR
-    subgraph Controls ["User Interactive Triggers"]
+    subgraph Controls ["User Interaction Triggers"]
         Tabs ["Segmented Tab Buttons"]
         Ticker ["Serial Bus Ticker Items"]
     end
 
-    subgraph Handler ["JavaScript State Controller"]
+    subgraph Engine ["JavaScript State Controller"]
         State ["updateBranchView(branchId)"]
         DataMap ["branchDataMap (Dict)"]
     end
 
-    subgraph View ["DOM View Updates"]
-        Info ["Left Info Panel (Badge, Address, Phone)"]
-        DirectLink ["Get Directions Button (URL)"]
-        Iframe ["Right Map Viewport (Google Maps Embed)"]
+    subgraph DOM ["Dynamic View Updates"]
+        Info ["Left Panel (Badge, Address, Phone)"]
+        GNav ["Get Directions Button (GPS Deep Link)"]
+        Map ["Right Viewport (Google Maps Embed Iframe)"]
     end
 
-    Tabs --> Handler
-    Ticker --> Handler
-    Handler --> DataMap
+    Tabs --> Engine
+    Ticker --> Engine
+    Engine --> DataMap
     DataMap --> Info
-    DataMap --> DirectLink
-    DataMap --> Iframe
+    DataMap --> GNav
+    DataMap --> Map
 ```
 
-### Branch Data Schema (`branchDataMap`)
-Each branch entity is registered with structured metadata:
-- `title`: Branch commercial name.
-- `subtitle`: Functional division tag (e.g., Head Office, Sign Tech, Malabar Hub).
-- `badge` & `badgeClass`: Visual tag styling (`hq`, `tech`, `calicut`, `tvm`).
-- `address`: Detailed street address with pincode.
-- `phone`: Primary trade desk and hotline contact numbers.
-- `embedUrl`: Google Maps embed iframe URL query.
-- `directUrl`: Google Maps deep link for direct GPS navigation.
-
 ---
 
-## 🔄 Event-Driven JS Architecture (`script.js`)
+## 🔄 Event-Driven JS Engines (`script.js` & `admin.js`)
 
-The JavaScript engine is structured around DOM event delegation and browser APIs:
-
-1. **Header Scroll & Nav Active Highlighter**: Listens to `window.scroll`, toggles `.scrolled` state on header, and updates active menu highlights based on section thresholds.
-2. **Category & Gallery Filtering**: Client-side filtering hiding/showing product cards using `data-category` and CSS fade animations.
-3. **Quote Modal Controller**: Global dialog handling opening/closing modals, disabling body scrolling during active modal state, and auto-populating product select options.
+1. **Header Scroll & Active Nav Highlighter**: Listens to `window.scroll`, toggles `.scrolled` state on header, and calculates active section thresholds.
+2. **Category & Gallery Filter**: Client-side card filtering using `data-category` attributes with smooth CSS transitions.
+3. **Quote Modal Dialog Engine**: Global dialog state manager controlling open/close, locking body scroll, and auto-selecting requested product item.
 4. **Toast Notification System**: Dynamic DOM injection for instant user feedback upon form submission.
-5. **IntersectionObserver Counter**: Triggers numeric counter animation when the stats section scrolls into view.
+5. **Admin Portal Controller (`admin.js`)**: Manages JWT lifecycle (`localStorage`), authenticates admin users, fetches inquiry tables, handles lead status updates (`pending`, `contacted`, `quote_sent`, `closed`), and handles product inventory CRUD operations.
 
 ---
 
-## 🗄️ Backend Data Architecture (Laravel + MySQL)
+## 🗄️ Backend REST API Architecture (Node.js + Express)
 
-The system is prepared for backend integration using Laravel's MVC pattern:
+The backend is built as a RESTful JSON API using Node.js, Express.js, and Mongoose ODM.
+
+### System Layer Architecture
+
+```mermaid
+graph TD
+    Req ["HTTP Request"] --> Security ["Helmet & CORS Middleware"]
+    Security --> Logging ["Morgan Logging"]
+    Logging --> Parser ["Body Parser (express.json)"]
+    Parser --> Routing {"Route Routing"}
+    
+    Routing -->|"/api/auth"| AuthRoutes ["Auth Router"]
+    Routing -->|"/api/inquiries"| InquiryRoutes ["Inquiry Router"]
+    Routing -->|"/api/products"| ProductRoutes ["Product Router"]
+    Routing -->|"/api/branches"| BranchRoutes ["Branch Router"]
+    
+    AuthRoutes --> AuthCtrl ["Auth Controller (JWT & Bcrypt)"]
+    InquiryRoutes --> InquiryCtrl ["Inquiry Controller"]
+    ProductRoutes --> ProductCtrl ["Product Controller"]
+    BranchRoutes --> BranchCtrl ["Branch Controller"]
+    
+    AuthCtrl --> DB models
+    InquiryCtrl --> DB models
+    ProductCtrl --> DB models
+    BranchCtrl --> DB models
+```
+
+---
+
+## 💾 Mongoose Data Schemas (Database Models)
 
 ```mermaid
 erDiagram
-    BRANCHES {
-        int id PK
-        string slug UK
+    USER {
+        ObjectId _id PK
         string name
-        string division
+        string email UK
+        string password "Bcrypt Hashed"
+        string role "admin | manager | sales"
+        date createdAt
+        date updatedAt
+    }
+
+    BRANCH {
+        ObjectId _id PK
+        string slug UK
+        string title
+        string subtitle
+        string badge
+        string badgeClass
         string address
         string phone
         string email
-        string embed_url
-        string direct_url
+        string embedUrl
+        string directUrl
+        boolean isActive
     }
 
-    PRODUCTS {
-        int id PK
+    PRODUCT {
+        ObjectId _id PK
         string title
+        string slug UK
         string category
         string brand
-        string specs
+        string tagline
+        array specifications
         string description
-        string image_url
+        string imageUrl
+        boolean isFeatured
+        string stockStatus
     }
 
-    INQUIRIES {
-        int id PK
-        string customer_name
+    INQUIRY {
+        ObjectId _id PK
+        string name
         string phone
         string email
         string category
-        text message
-        timestamp created_at
+        string product
+        string branch
+        string message
+        string status "pending | contacted | quote_sent | closed"
+        string ipAddress
+        date createdAt
     }
 
-    PRODUCTS }|..|{ INQUIRIES : "inquired in"
+    PRODUCT }|..|{ INQUIRY : "referenced in quote"
+    BRANCH }|..|{ INQUIRY : "directed to branch"
 ```
+
+### Model Specifications
+
+1. **User Model (`User.js`)**: Secure admin user storage with Mongoose `pre('save')` hooks for automatic password salting and hashing (`bcryptjs`), and instance method `matchPassword()`.
+2. **Product Model (`Product.js`)**: Catalog schema storing product title, slug, category, brand, tagline, key-value specification pairs, images, and inventory stock availability.
+3. **Inquiry Model (`Inquiry.js`)**: Customer lead record containing quote requests, contact numbers, selected branch, status tracking (`pending`, `contacted`, `quote_sent`, `closed`), and submitter IP tracking.
+4. **Branch Model (`Branch.js`)**: Network location metadata including name, address, direct phone lines, Google Maps iframe embed URLs, and direct GPS navigation links.
 
 ---
 
-## ⚡ Performance & SEO Optimizations
+## 🔒 Security & Performance Engineering
 
-- **Semantic HTML5**: Single `<h1>` per view with strict heading hierarchy.
-- **Lazy Loading**: `loading="lazy"` on map iframes and images.
-- **Zero Heavy Dependencies**: Built with zero external JS frameworks for instant page render times.
+- **Authentication & Authorization**: Stateless JWT (JSON Web Token) authentication with bearer authorization headers.
+- **HTTP Security Headers**: Express `helmet()` integration protecting against XSS, clickjacking, and MIME-type sniffing.
+- **Cross-Origin Resource Sharing**: Configured `cors()` allowing controlled origin access.
+- **Zero Heavy Dependencies**: Frontend engineered without bulky client-side frameworks, ensuring near-instant DOM loads.
+- **Responsive & Accessible**: Fully semantic HTML5 structure with ARIA tags and optimized color contrast ratios.
