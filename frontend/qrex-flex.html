@@ -46,7 +46,7 @@
 
       <!-- Action Button -->
       <div class="header-action">
-        <button class="btn btn-primary" data-product="Qrex Flex Wholesale">Request Quote</button>
+        <button class="btn btn-primary open-quote-modal" data-product="Qrex Flex Wholesale">Request Quote</button>
       </div>
 
       <!-- Mobile Toggle -->
@@ -291,7 +291,7 @@
             </div>
             <div class="amz-product-action">
               <div class="amz-prime">Wholesale Prime</div>
-              <button class="amz-btn" data-product="Qrex Frontlit 340GSM">Request Quote</button>
+              <button class="amz-btn open-quote-modal" data-product="Qrex Frontlit 340GSM">Request Quote</button>
             </div>
           </div>
 
@@ -317,7 +317,7 @@
             </div>
             <div class="amz-product-action">
               <div class="amz-prime">Wholesale Prime</div>
-              <button class="amz-btn" data-product="Qrex Backlit 510GSM">Request Quote</button>
+              <button class="amz-btn open-quote-modal" data-product="Qrex Backlit 510GSM">Request Quote</button>
             </div>
           </div>
 
@@ -343,7 +343,7 @@
             </div>
             <div class="amz-product-action">
               <div class="amz-prime">Wholesale Prime</div>
-              <button class="amz-btn" data-product="Qrex Blockout 440GSM">Request Quote</button>
+              <button class="amz-btn open-quote-modal" data-product="Qrex Blockout 440GSM">Request Quote</button>
             </div>
           </div>
 
@@ -352,6 +352,55 @@
     </div>
   </div>
 
+
+  <!-- QUOTE REQUEST MODAL DIALOG -->
+  <div class="modal-backdrop" id="quote-modal">
+    <div class="modal-content glassmorphic-modal">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      
+      <div class="modal-header">
+        <span class="modal-tag">B2B Trade Inquiry</span>
+        <h3 class="modal-title">Request B2B Qrex Flex Quote</h3>
+        <p class="modal-sub">Receive custom bulk pricing per roll or sq.ft within 30 minutes.</p>
+      </div>
+
+      <form id="quote-modal-form" class="modal-form">
+        <div class="form-group">
+          <label for="modal-name">Your Full Name *</label>
+          <input type="text" id="modal-name" name="name" placeholder="Ramesh Verma" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="modal-phone">Phone / WhatsApp *</label>
+            <input type="tel" id="modal-phone" name="phone" placeholder="+91 98765 43210" required>
+          </div>
+          <div class="form-group">
+            <label for="modal-company">Business / Company Name</label>
+            <input type="text" id="modal-company" name="company" placeholder="Paramount Prints">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="modal-product-select">Selected Flex Media Variant *</label>
+          <select id="modal-product-select" name="product" required>
+            <option value="Qrex Frontlit 340GSM">Qrex Frontlit Standard (340 GSM)</option>
+            <option value="Qrex Backlit 510GSM">Qrex Premium Backlit (510 GSM)</option>
+            <option value="Qrex Blockout 440GSM">Qrex Black Back / Blockout (440 GSM)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="modal-quantity">Estimated Quantity / Number of Rolls</label>
+          <input type="text" id="modal-quantity" name="quantity" placeholder="e.g. 5 Rolls of 3.2m x 50m">
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">
+          Submit Rate Request
+        </button>
+      </form>
+    </div>
+  </div>
 
   <!-- TOAST NOTIFICATION CONTAINER -->
   <div class="toast-container" id="toast-container"></div>
