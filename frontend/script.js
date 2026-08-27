@@ -146,7 +146,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('.nav-menu .nav-link');
 
   let lastScrollTop = 0;
-  const handleScroll = () => {
+  let isTicking = false;
+
+  const updateScrollState = () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
     // Header shadow on scroll
@@ -172,10 +174,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Active Section Highlight
     let currentSectionId = '';
+    const scrollPos = window.scrollY + 120;
     sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120;
+      const sectionTop = section.offsetTop;
       const sectionHeight = section.offsetHeight;
-      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+      if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
         currentSectionId = section.getAttribute('id');
       }
     });
@@ -196,10 +199,19 @@ document.addEventListener('DOMContentLoaded', () => {
         backToTopBtn.classList.remove('visible');
       }
     }
+
+    isTicking = false;
   };
 
-  window.addEventListener('scroll', handleScroll);
-  handleScroll(); // Initial call
+  const handleScroll = () => {
+    if (!isTicking) {
+      requestAnimationFrame(updateScrollState);
+      isTicking = true;
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  updateScrollState(); // Initial call
 
   // Back to Top Click
   const backToTopBtn = document.getElementById('back-to-top');
@@ -228,8 +240,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Close menu on nav link click
-    document.querySelectorAll('.nav-link').forEach(link => {
+    // Close menu on nav link or dropdown link click
+    document.querySelectorAll('.nav-link, .dropdown-link').forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
         const spans = mobileToggle.querySelectorAll('span');
@@ -237,6 +249,17 @@ document.addEventListener('DOMContentLoaded', () => {
         spans[1].style.opacity = '1';
         spans[2].style.transform = 'none';
       });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+        navMenu.classList.remove('active');
+        const spans = mobileToggle.querySelectorAll('span');
+        spans[0].style.transform = 'none';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'none';
+      }
     });
   }
 
@@ -650,49 +673,28 @@ document.addEventListener('DOMContentLoaded', () => {
     hubCard.classList.add('is-visible');
   }
 
-  // Set background video playback rate to 0.65 and pause 1-2 frames before the end for 1 second before looping
+  // Efficient background video loop without CPU/GPU lag
   const heroVideo = document.querySelector('.hero-video-player');
   if (heroVideo) {
     heroVideo.playbackRate = 0.65;
-    
-    let isPausedAtEnd = false;
-    function checkVideoTime() {
-      if (heroVideo && !heroVideo.paused && heroVideo.duration) {
-        const timeRemaining = heroVideo.duration - heroVideo.currentTime;
-        // Pause approx 1 frame before the end (0.05 seconds remaining)
-        if (timeRemaining > 0 && timeRemaining <= 0.05 && !isPausedAtEnd) {
-          isPausedAtEnd = true;
-          heroVideo.pause();
-          setTimeout(() => {
-            heroVideo.currentTime = 0;
-            heroVideo.play().then(() => {
-              isPausedAtEnd = false;
-            }).catch(() => {
-              isPausedAtEnd = false;
-            });
-          }, 1000);
-        }
+    heroVideo.addEventListener('timeupdate', () => {
+      if (heroVideo.duration && (heroVideo.duration - heroVideo.currentTime <= 0.1)) {
+        heroVideo.currentTime = 0;
+        heroVideo.play().catch(() => {});
       }
-      requestAnimationFrame(checkVideoTime);
-    }
-    
-    heroVideo.addEventListener('play', () => {
-      requestAnimationFrame(checkVideoTime);
     });
-    requestAnimationFrame(checkVideoTime);
   }
 
   // --- ANIMATION 2: FADE-UP, SIDE & DOWN REVEAL OBSERVER ---
   const fadeElements = document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-down');
-  const revealObserver = new IntersectionObserver((entries) => {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('revealed');
-      } else {
-        entry.target.classList.remove('revealed');
+        observer.unobserve(entry.target); // Permanently reveal to prevent flickering/lag on scroll
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
 
   fadeElements.forEach(el => revealObserver.observe(el));
 
@@ -810,6 +812,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     resetAutoplay();
+  }
+
+  // --- 10. NEWSLETTER FORM HANDLER ---
+  const newsletterForm = document.getElementById('newsletter-form');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const emailInput = document.getElementById('newsletter-email');
+      const email = emailInput ? emailInput.value.trim() : '';
+      if (!email) return;
+      showToast('Thank you for subscribing! You will receive our latest rate cards and updates.', 'Subscribed!');
+      newsletterForm.reset();
+    });
   }
 });
 
