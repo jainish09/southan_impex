@@ -94,6 +94,392 @@
     </div>
   </section>
 
+  <!-- BNZ PRODUCT LISTING -->
+  <section id="bnz-products" style="background: #f8fafc; padding: 60px 0 70px;">
+    <style>
+      .bnz-products-header {
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+      .bnz-products-tag {
+        display: inline-block;
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        color: #D90416;
+        background: rgba(217,4,22,0.08);
+        border: 1px solid rgba(217,4,22,0.2);
+        border-radius: 100px;
+        padding: 4px 14px;
+        margin-bottom: 0.75rem;
+        text-transform: uppercase;
+      }
+      .bnz-products-title {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: #0f172a;
+        margin-bottom: 0.4rem;
+      }
+      .bnz-products-sub {
+        font-size: 0.9rem;
+        color: #64748b;
+      }
+      .bnz-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .bnz-card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 14px;
+        padding: 24px 20px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        transition: box-shadow 0.25s ease, transform 0.25s ease;
+        position: relative;
+      }
+      .bnz-card:hover {
+        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        transform: translateY(-4px);
+      }
+      .bnz-card-name {
+        font-size: 0.88rem;
+        font-weight: 800;
+        color: #0f172a;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+      }
+      .bnz-card-desc {
+        font-size: 0.8rem;
+        color: #475569;
+        line-height: 1.6;
+        flex-grow: 1;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .bnz-card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-top: 8px;
+        padding-top: 12px;
+        border-top: 1px solid #f1f5f9;
+      }
+      .bnz-view-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: #0f172a;
+        text-decoration: none;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+        transition: color 0.2s;
+      }
+      .bnz-view-btn:hover { color: #D90416; }
+      .bnz-view-btn:hover .bnz-arrow { background: #D90416; color: #fff; }
+      .bnz-arrow {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 1.5px solid #cbd5e1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        transition: background 0.2s, color 0.2s;
+        flex-shrink: 0;
+      }
+      @media (max-width: 900px) {
+        .bnz-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (max-width: 520px) {
+        .bnz-grid { grid-template-columns: 1fr; }
+        .bnz-products-title { font-size: 1.25rem; }
+      }
+    </style>
+
+    <div class="container">
+      <div class="bnz-products-header">
+        <span class="bnz-products-tag">BNZ® Product Range</span>
+        <div class="bnz-products-title">BNZ LED Modules & Power Supplies</div>
+        <p class="bnz-products-sub">Explore our range of high-performance BNZ® LED modules for signage illumination.</p>
+      </div>
+    </div>
+
+    <div class="bnz-grid">
+
+      <!-- Card 1: Alpha Pro Series -->
+      <div class="bnz-card">
+        <div class="bnz-card-name">Alpha Pro Series</div>
+        <div class="bnz-card-desc">
+          ALPHA PRO SERIES – 2.0W high-output 12V LED module engineered for maximum brightness and longevity in premium signage, backlit boards, and illuminated channel letters.
+        </div>
+        <div class="bnz-card-footer">
+          <button class="bnz-view-btn open-quote-modal" data-product="BNZ Alpha Pro Series">
+            View More
+            <span class="bnz-arrow">↗</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 2: Brite Series -->
+      <div class="bnz-card">
+        <div class="bnz-card-name">Brite Series</div>
+        <div class="bnz-card-desc">
+          BNZ BRITE Series is a high-performance 12V DC, 2W LED module delivering 210 lumens with a 165° wide beam angle for bright, uniform illumination. Its ultra-thin profile and IP65 rating make it ideal for slim lightbox and sign panel applications.
+        </div>
+        <div class="bnz-card-footer">
+          <button class="bnz-view-btn open-quote-modal" data-product="BNZ Brite Series">
+            View More
+            <span class="bnz-arrow">↗</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 3: Button LED-9MM -->
+      <div class="bnz-card">
+        <div class="bnz-card-name">Button LED-9MM</div>
+        <div class="bnz-card-desc">
+          BNZ BUTTON LED 9MM – Model 1212 is a compact and high-quality 12V LED module specially designed for signage and decorative illumination applications. Delivers consistent dot-free brightness across narrow channel letter profiles.
+        </div>
+        <div class="bnz-card-footer">
+          <button class="bnz-view-btn open-quote-modal" data-product="BNZ Button LED 9MM">
+            View More
+            <span class="bnz-arrow">↗</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 4: Eagle-X Series -->
+      <div class="bnz-card">
+        <div class="bnz-card-name">Eagle-X Series</div>
+        <div class="bnz-card-desc">
+          LEDIFY EAGLE X SERIES 1.8W is a premium high-brightness 12V LED module engineered for GSB boards, acrylic channel letters, and signage applications requiring reliable high-intensity illumination with minimal heat generation.
+        </div>
+        <div class="bnz-card-footer">
+          <button class="bnz-view-btn open-quote-modal" data-product="BNZ Eagle-X Series">
+            View More
+            <span class="bnz-arrow">↗</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ALPHA PRO SERIES — PRODUCT DETAIL -->
+  <section id="alpha-pro-detail" style="background: #ffffff; padding: 60px 0 70px;">
+    <style>
+      .apd-wrap {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      .apd-brand-logo {
+        margin-bottom: 28px;
+      }
+      .apd-brand-logo img {
+        height: 36px;
+        object-fit: contain;
+      }
+      .apd-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: center;
+      }
+      /* LEFT — product image */
+      .apd-img-box {
+        background: #f1f5f9;
+        border-radius: 18px;
+        padding: 48px 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        min-height: 340px;
+      }
+      .apd-img-box img {
+        max-width: 100%;
+        max-height: 280px;
+        object-fit: contain;
+        filter: drop-shadow(0 8px 24px rgba(0,0,0,0.12));
+      }
+      .apd-img-watermark {
+        position: absolute;
+        bottom: 14px;
+        right: 18px;
+        opacity: 0.35;
+      }
+      .apd-img-watermark img {
+        height: 24px;
+      }
+      /* RIGHT — specs */
+      .apd-right {}
+      .apd-product-name {
+        font-size: 1.75rem;
+        font-weight: 800;
+        color: #0f172a;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+      .apd-specs-label {
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        color: #D90416;
+        text-transform: uppercase;
+        margin-bottom: 1.25rem;
+      }
+      .apd-spec-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #f1f5f9;
+      }
+      .apd-spec-row:last-of-type {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+      .apd-spec-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: 1.5px solid #cbd5e1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-size: 18px;
+        color: #64748b;
+      }
+      .apd-spec-info {}
+      .apd-spec-key {
+        font-size: 0.78rem;
+        color: #94a3b8;
+        font-weight: 600;
+        margin-bottom: 2px;
+      }
+      .apd-spec-val {
+        font-size: 1rem;
+        font-weight: 800;
+        color: #0f172a;
+      }
+      .apd-actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+      }
+      .apd-btn-download {
+        background: #D90416;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 13px 28px;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: opacity 0.2s;
+      }
+      .apd-btn-download:hover { opacity: 0.88; }
+      .apd-btn-quote {
+        background: #0f172a;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 13px 28px;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        transition: opacity 0.2s;
+      }
+      .apd-btn-quote:hover { opacity: 0.85; }
+      @media (max-width: 700px) {
+        .apd-layout { grid-template-columns: 1fr; gap: 28px; }
+        .apd-product-name { font-size: 1.35rem; }
+        .apd-img-box { min-height: 220px; padding: 32px 20px; }
+      }
+    </style>
+
+    <div class="apd-wrap">
+
+      <!-- BNZ Brand Logo -->
+      <div class="apd-brand-logo">
+        <img src="assets/bnz-logo.jpg" alt="BNZ LED & SMPS">
+      </div>
+
+      <div class="apd-layout">
+
+        <!-- LEFT: Product Image -->
+        <div class="apd-img-box">
+          <img src="assets/led_modules.jpg" alt="BNZ Alpha Pro Series 2.0W LED Module">
+          <div class="apd-img-watermark">
+            <img src="assets/bnz-logo.jpg" alt="BNZ">
+          </div>
+        </div>
+
+        <!-- RIGHT: Specifications -->
+        <div class="apd-right">
+          <div class="apd-product-name">ALPHA PRO SERIES – 2.0W</div>
+          <div class="apd-specs-label">Our Product Specifications</div>
+
+          <!-- Spec Row 1: Model Number -->
+          <div class="apd-spec-row">
+            <div class="apd-spec-icon">📦</div>
+            <div class="apd-spec-info">
+              <div class="apd-spec-key">Model Number</div>
+              <div class="apd-spec-val">7020</div>
+            </div>
+          </div>
+
+          <!-- Spec Row 2: CCT -->
+          <div class="apd-spec-row">
+            <div class="apd-spec-icon">🔆</div>
+            <div class="apd-spec-info">
+              <div class="apd-spec-key">CCT</div>
+              <div class="apd-spec-val">10000K, 3000K, RED</div>
+            </div>
+          </div>
+
+          <!-- Spec Row 3: Lumens -->
+          <div class="apd-spec-row">
+            <div class="apd-spec-icon">💡</div>
+            <div class="apd-spec-info">
+              <div class="apd-spec-key">Lumens / module</div>
+              <div class="apd-spec-val">185</div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="apd-actions">
+            <button class="apd-btn-download">⬇ Download Datasheet</button>
+            <button class="apd-btn-quote open-quote-modal" data-product="BNZ Alpha Pro Series 2.0W">Get Quote</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!-- SUB FOOTER -->
   <footer class="sub-footer">
