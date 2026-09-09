@@ -148,6 +148,27 @@
         box-shadow: 0 8px 24px rgba(0,0,0,0.1);
         transform: translateY(-4px);
       }
+      .bnz-card-img {
+        width: 100%;
+        height: 160px;
+        background: #f8fafc;
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 4px;
+      }
+      .bnz-card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 12px;
+        transition: transform 0.3s ease;
+      }
+      .bnz-card:hover .bnz-card-img img {
+        transform: scale(1.05);
+      }
       .bnz-card-name {
         font-size: 0.88rem;
         font-weight: 800;
@@ -223,6 +244,9 @@
 
       <!-- Card 1: Alpha Pro Series -->
       <div class="bnz-card">
+        <div class="bnz-card-img">
+          <img src="assets/bnz_alpha_pro_series.jpg" alt="BNZ Alpha Pro Series LED Module" loading="lazy">
+        </div>
         <div class="bnz-card-name">Alpha Pro Series</div>
         <div class="bnz-card-desc">
           ALPHA PRO SERIES – 2.0W high-output 12V LED module engineered for maximum brightness and longevity in premium signage, backlit boards, and illuminated channel letters.
@@ -237,6 +261,9 @@
 
       <!-- Card 2: Brite Series -->
       <div class="bnz-card">
+        <div class="bnz-card-img">
+          <img src="assets/bnz_brite_series.jpg" alt="BNZ Brite Series LED Module" loading="lazy">
+        </div>
         <div class="bnz-card-name">Brite Series</div>
         <div class="bnz-card-desc">
           BNZ BRITE Series is a high-performance 12V DC, 2W LED module delivering 210 lumens with a 165° wide beam angle for bright, uniform illumination. Its ultra-thin profile and IP65 rating make it ideal for slim lightbox and sign panel applications.
@@ -251,6 +278,9 @@
 
       <!-- Card 3: Button LED-9MM -->
       <div class="bnz-card">
+        <div class="bnz-card-img">
+          <img src="assets/bnz_button_led_9mm.jpg" alt="BNZ Button LED 9MM" loading="lazy">
+        </div>
         <div class="bnz-card-name">Button LED-9MM</div>
         <div class="bnz-card-desc">
           BNZ BUTTON LED 9MM – Model 1212 is a compact and high-quality 12V LED module specially designed for signage and decorative illumination applications. Delivers consistent dot-free brightness across narrow channel letter profiles.
@@ -265,12 +295,32 @@
 
       <!-- Card 4: Eagle-X Series -->
       <div class="bnz-card">
+        <div class="bnz-card-img">
+          <img src="assets/bnz_eagle_x_series.jpg" alt="LEDIFY Eagle-X Series LED Module" loading="lazy">
+        </div>
         <div class="bnz-card-name">Eagle-X Series</div>
         <div class="bnz-card-desc">
           LEDIFY EAGLE X SERIES 1.8W is a premium high-brightness 12V LED module engineered for GSB boards, acrylic channel letters, and signage applications requiring reliable high-intensity illumination with minimal heat generation.
         </div>
         <div class="bnz-card-footer">
           <button class="bnz-view-btn open-quote-modal" data-product="BNZ Eagle-X Series">
+            View More
+            <span class="bnz-arrow">↗</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 5: Slim Series -->
+      <div class="bnz-card">
+        <div class="bnz-card-img">
+          <img src="assets/bnz_slim_series.jpg" alt="BNZ Slim Series LED Module" loading="lazy">
+        </div>
+        <div class="bnz-card-name">Slim Series</div>
+        <div class="bnz-card-desc">
+          BNZ SLIM SERIES is an ultra-thin 12V DC LED module designed for space-constrained signage applications. Delivers consistent, high-quality illumination with a low-profile form factor, making it perfect for slim lightboxes, backlit panels, and slim channel letter applications.
+        </div>
+        <div class="bnz-card-footer">
+          <button class="bnz-view-btn open-quote-modal" data-product="BNZ Slim Series">
             View More
             <span class="bnz-arrow">↗</span>
           </button>
