@@ -88,7 +88,7 @@
       const bName = targetLink.querySelector('.brand-name')?.textContent?.trim()?.toUpperCase() || '';
       if (bName.includes('QREX')) href = 'qrex-flex.html';
       else if (bName.includes('SUNSTAR')) href = 'sunstar-vinyl.html';
-      else if (bName.includes('STARFLEX')) href = 'starflex-vinyl.html';
+      else if (bName.includes('STARFLEX')) href = (document.body.id === 'flex-page' || window.location.pathname.includes('flex')) ? 'starflex-flex.html' : 'starflex-vinyl.html';
       else if (bName.includes('ASTRYX')) href = 'acrylic.html';
       else if (bName.includes('BNZ')) href = 'led.html';
       else if (bName.includes('KPL') || bName.includes('P.E')) href = 'pe-sheets.html';
